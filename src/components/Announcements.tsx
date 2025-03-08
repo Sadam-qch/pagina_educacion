@@ -80,7 +80,7 @@ export default function Announcements() {
                 />
               </a>
               <h4 className="mt-3 font-serif text-lg">
-                Ciencias de la Educación y Ch'uxña Uta Bolivia.
+                {"Ciencias de la Educación y Ch'uxña Uta Bolivia."}
               </h4>
             </div>
             {/* Card 5 */}
