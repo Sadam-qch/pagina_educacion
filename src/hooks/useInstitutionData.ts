@@ -3,7 +3,7 @@ import { institutionApi } from "@/util/api";
 import { useState, useEffect } from "react";
 
 export const useInstitutionData = () => {
-  const [institionData, setInstitionData] = useState<Institution>();
+  const [institutionData, setInstitutionData] = useState<Institution>();
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -12,7 +12,7 @@ export const useInstitutionData = () => {
       try {
         setLoading(true);
         const result = await institutionApi.getInstitution();
-        setInstitionData(result);
+        setInstitutionData(result);
       } catch (error) {
         setError("Error al cargar los datos de la institución");
         console.error("Error fetching insitutions:", error);
@@ -24,5 +24,5 @@ export const useInstitutionData = () => {
     fetchInstitution();
   }, []);
 
-  return { institionData, error, loading };
+  return { institutionData, error, loading };
 };
