@@ -4,6 +4,7 @@ import { usePublication } from "@/hooks/usePublications";
 
 export default function Announcements() {
   const { convenios } = usePublication();
+
   return (
     <section className="p-6 mt-4 bg-white rounded-lg">
       {/* Sección de Comunicados  */}
@@ -41,26 +42,27 @@ export default function Announcements() {
         {/* Cards para comunicados Convenios por modalidad de graduación */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {/* Card 1 */}
-          {convenios.map((data, index) => (
-            <div
-              key={`card-convenio-${index}`}
-              className="p-6 bg-blue-100 rounded-lg shadow-lg"
-            >
-              <a
-                href={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
-                target="_blank"
+          {convenios &&
+            convenios.map((data, index) => (
+              <div
+                key={`card-convenio-${index}`}
+                className="p-6 bg-blue-100 rounded-lg shadow-lg"
               >
-                <img
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
-                  alt="Imagen"
-                  className="object-contain w-full h-48 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
-                />
-              </a>
-              <h4 className="mt-3 font-serif text-gray-600 text-lg">
-                {data.publicaciones_titulo}
-              </h4>
-            </div>
-          ))}
+                <a
+                  href={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
+                  target="_blank"
+                >
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
+                    alt="Imagen"
+                    className="object-contain w-full h-48 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
+                  />
+                </a>
+                <h4 className="mt-3 font-serif text-gray-600 text-lg">
+                  {data.publicaciones_titulo}
+                </h4>
+              </div>
+            ))}
         </div>
       </div>
     </section>
