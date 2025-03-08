@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export const usePublication = () => {
   const [publication, setPublication] = useState<Publication[]>();
+  const [convenios, setConvenios] = useState<Publication[]>();
   const [error, setError] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -13,6 +14,12 @@ export const usePublication = () => {
         setLoading(true);
         const result = await institutionApi.getPublication();
         setPublication(result);
+        setConvenios(
+          result.filter(
+            (data) =>
+              data.publicaciones_tipo && data.publicaciones_tipo === "CONVENIO"
+          )
+        );
       } catch (error) {
         setError("Error al cargar las publicaciones");
         console.error("Error fetching:", error);
@@ -24,5 +31,5 @@ export const usePublication = () => {
     fetchInstitution();
   }, []);
 
-  return { publication, error, loading };
+  return { publication, convenios, error, loading };
 };
