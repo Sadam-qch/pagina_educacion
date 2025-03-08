@@ -1,8 +1,8 @@
 "use client";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import WelcomeInformation from "./components/WelcomeInformation";
-import Announcements from "./components/Announcements";
+import WelcomeInformation from "../components/WelcomeInformation";
+import Announcements from "../components/Announcements";
 
 export default function Page() {
   
