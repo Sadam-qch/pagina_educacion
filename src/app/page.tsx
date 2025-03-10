@@ -1,12 +1,16 @@
 "use client";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import WelcomeInformation from "./components/WelcomeInformation";
-import Announcements from "./components/Announcements";
+import WelcomeInformation from "../components/WelcomeInformation";
+import Announcements from "../components/Announcements";
+import Header from "@/components/Header";
+import { useInstitutionData } from "@/hooks/useInstitutionData";
 
 export default function Page() {
-  
+  const {institutionData}  =useInstitutionData()
   return (
+    <>
+    <Header title={institutionData?.institucion_nombre}/>
     <div className="flex flex-col min-h-screen">
       {/* Espaciado para evitar que el contenido quede debajo del menú */}
       <div>
@@ -22,6 +26,7 @@ export default function Page() {
         </div>
       </div>
     </div>
+    </>
   );
   
 

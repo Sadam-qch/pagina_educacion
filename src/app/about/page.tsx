@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 import DOMPurify from 'dompurify';
-import Campuses from "../components/Campuses";
-import Platforms from "../components/Platforms";
-import Authorities from "../components/Authorities";
+import Platforms from "@/components/Platforms";
+import Authorities from "@/components/Authorities";
+import Campuses from "@/components/Campuses";
 
 // URL de la API centralizada
 const API_URL = 'https://serviciopagina.upea.bo/api/InstitucionUPEA/12';
