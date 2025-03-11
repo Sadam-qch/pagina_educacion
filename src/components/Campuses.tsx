@@ -1,55 +1,39 @@
 "use client";
+import { usePublication } from "@/hooks/usePublications";
+
 export default function Campuses() {
-    return (
-      <section className="p-6 mt-4 bg-white rounded-lg shadow-md">
-      {/* Sección Sedes academicas */}
-      <div className="">
-        <h2 className="mb-4 text-xl font-bold text-center">Sedes Academicas</h2>
+  const { sedes, loading } = usePublication();
 
-        {/* Divisiones de las sedes */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Sede 1 */}
-          <div className="p-6 text-center bg-gray-100 rounded-lg shadow-lg">
-            <img 
-              src="https://serviciopagina.upea.bo/Publicaciones/da91a6e3-7b5b-45ed-bba6-3137e39c084f.jpg" 
-              alt="Sede 1" 
-              className="object-cover w-full h-48 rounded-t-lg"
-            />
-            <h3 className="mt-4 text-lg font-semibold">Sede Academica Batallas</h3>
-          </div>
+  if (loading) {
+    return <p className="py-4 text-center">Cargando sedes académicas...</p>;
+  }
 
-          {/* Sede 2 */}
-          <div className="p-6 text-center bg-gray-100 rounded-lg shadow-lg">
-            <img 
-              src="https://serviciopagina.upea.bo/Publicaciones/b541c092-4f5d-499c-b164-ea933fd7226f.jpg" 
-              alt="Sede 2" 
-              className="object-cover w-full h-48 rounded-t-lg"
-            />
-            <h3 className="mt-4 text-lg font-semibold">Sede Academica de Guaqui</h3>
+  return (
+    <section className="p-6 mt-4 bg-white rounded-lg shadow-md">
+      {/* Sección Sedes académicas */}
+      <h2 className="mb-6 text-2xl font-bold text-center text-[#0A02B0]">SEDES ACADÉMICAS</h2>
+      
+      {/* Todas las sedes en una sola cuadrícula */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        {sedes &&
+        sedes.map((data) => (
+          <div 
+            key={data.publicaciones_id}
+            className="overflow-hidden transition-transform duration-300 bg-gray-100 rounded-lg shadow-lg hover:transform hover:scale-105"
+          >
+            <div className="relative h-48">
+              <img 
+                src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`} 
+                alt="Sede académica" 
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg font-semibold text-center">{data.publicaciones_titulo}</h3>
+            </div>
           </div>
-
-          {/* Sede 3 */}
-          <div className="p-6 text-center bg-gray-100 rounded-lg shadow-lg">
-            <img 
-              src="https://serviciopagina.upea.bo/Publicaciones/9305b1a5-a728-46ca-b29c-3ff0ffc823b0.jpg" 
-              alt="Sede 3" 
-              className="object-cover w-full h-48 rounded-t-lg"
-            />
-            <h3 className="mt-4 text-lg font-semibold">Sede Academica Chaguaya</h3>
-          </div>
-
-          {/* Sede 4 */}
-          <div className="p-6 text-center bg-gray-100 rounded-lg shadow-lg">
-            <img 
-              src="https://serviciopagina.upea.bo/Publicaciones/ae974b12-b52a-4a85-aa1a-e8286b9440fa.jpg" 
-              alt="Sede 4" 
-              className="object-cover w-full h-48 rounded-t-lg"
-            />
-            <h3 className="mt-4 text-lg font-semibold">Sede Academica Viacha</h3>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
-    );
-  }
-  
+  );
+}
