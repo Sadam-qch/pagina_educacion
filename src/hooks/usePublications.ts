@@ -6,6 +6,7 @@ export const usePublication = () => {
   const [publication, setPublication] = useState<Publication[]>();
   const [convenios, setConvenios] = useState<Publication[]>();
   const [biblioteca, setBiblioteca] = useState<Publication[]>();
+  const [sedes, setSedes] = useState<Publication[]>();
   const [error, setError] = useState<string>();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -28,6 +29,13 @@ export const usePublication = () => {
               data.publicaciones_tipo === "BIBLIOTECA"
           )
         );
+        setSedes(
+          result.filter(
+            (data) =>
+              data.publicaciones_tipo &&
+              data.publicaciones_tipo === "SEDES"
+          )
+        );
       } catch (error) {
         setError("Error al cargar las publicaciones");
         console.error("Error fetching:", error);
@@ -39,5 +47,5 @@ export const usePublication = () => {
     fetchInstitution();
   }, []);
 
-  return { publication, convenios, biblioteca, error, loading };
+  return { publication, convenios, biblioteca, sedes, error, loading };
 };
