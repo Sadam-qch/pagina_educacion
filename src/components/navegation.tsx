@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <>
       {/* Menú fijo sobre la imagen */}
-      <nav className="fixed left-0 w-full bg-[#662c14] bg-opacity-90 z-20">
+      <nav className="fixed left-0 w-full h-[5rem] bg-[#662c14] bg-opacity-90 z-20">
         <div className="flex items-center justify-between max-w-6xl px-6 mx-auto">
           {[
             {
@@ -73,7 +73,7 @@ export default function Header() {
                 <img
                   src={`https://serviciopagina.upea.bo/InstitucionUpea/${item.logo}`}
                   alt="Logo"
-                  className="object-contain w-32 h-32"
+                  className="object-contain w-20 "
                 />
               </div>
             </div>
