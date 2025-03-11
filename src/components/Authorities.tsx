@@ -1,6 +1,5 @@
 "use client";
 
-import { useAcademicData } from "@/hooks/useAcademicData";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
 
 export default function Authorities() {
@@ -9,13 +8,11 @@ export default function Authorities() {
     return (
       <section className="p-6 mt-4 bg-white rounded-lg shadow-md w-">
       {/* Sección Nuestras Autoridades */}
-      <div className="">
         <h2 className="mb-1 text-xl font-bold text-center">Nuestras Autoridades</h2>
-
         {/* Cards autoridades */}
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 ">
           {institutionData && institutionData.autoridad.map((data,_i)=>(
-            <div key={`card-${_i}`} className="p-6 text-center bg-gray-100 rounded-lg shadow-lg bg-cyan-800">
+            <div key={`card-${_i}`} className="p-6 text-center bg-gray-100 rounded-lg shadow-lg">
               <img 
                 src={`${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Autoridad/${data.foto_autoridad}`} 
                 alt="imagen" 
@@ -27,7 +24,6 @@ export default function Authorities() {
           )) }
 
         </div>
-      </div>
       </section>
     );
   }

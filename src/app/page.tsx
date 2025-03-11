@@ -21,8 +21,7 @@ export default function Page() {
         <div className="flex-grow w-full max-w-6xl px-4 py-6 mx-auto space-y-5 sm:px-6">
           {/* Comunicados de la carrera */}
           <Announcements/>
-          
-          
+
         </div>
       </div>
     </div>
