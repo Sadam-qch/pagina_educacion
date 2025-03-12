@@ -15,7 +15,7 @@ export default function Platforms() {
   return (
     <section className="p-6 mt-4 bg-white rounded-lg shadow-md">
       {/* Sección de Plataformas de la Carrera */}
-      <h2 className="mb-6 text-2xl font-bold text-center text-[#0A02B0]">Plataformas de la Carrera</h2>
+      <h2 className="text-3xl font-bold text-center text-[#0A02B0] mb-6">Plataformas de la Carrera</h2>
       
       {/* Todas las plataformas en una sola cuadrícula */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

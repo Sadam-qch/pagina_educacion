@@ -26,7 +26,7 @@ export default function Page() {
   };
 
   return (
-    <section className="max-w-5xl p-6 mx-auto mt-4 bg-white rounded-lg shadow-md">
+    <section className="max-w-5xl p-6 mx-auto mt-4 bg-white rounded-lg shadow-md pt-28">
       <h2 className="mb-4 text-3xl font-bold text-center">
         Visita Nuestra Biblioteca
       </h2>

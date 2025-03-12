@@ -8,7 +8,7 @@ import { stripHtml } from "@/util/formatText";
 
 export default function AboutPage() {
   // Usamos el hook para obtener los datos de la institución
-  const { institutionData, loading, error } = useInstitutionData();
+  const { institutionData, loading} = useInstitutionData();
 
   // Manejo de estado de carga y errores
   if (loading) return <div className="py-10 text-center">Cargando información institucional...</div>;
@@ -16,7 +16,8 @@ export default function AboutPage() {
   return (
     <main className="flex flex-col items-center w-full max-w-6xl px-4 py-8 mx-auto">
       {/* Sección de Información Institucional */}
-      <section className="w-full mb-12">
+      <section className="w-full pt-16 mb-12">
+      
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Misión</h1>
           <p className="mb-6 text-lg">
@@ -38,14 +39,14 @@ export default function AboutPage() {
       {/* Componentes adicionales en contenedores separados */}
       <section className="w-full mb-12">
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-center text-[#0A02B0] mb-6">Plataformas</h2>
+          {/**Plataformas Educacionales */}
           <Platforms />
         </div>
       </section>
       
       <section className="w-full mb-12">
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-center text-[#0A02B0] mb-6">Autoridades</h2>
+          {/**Autoridades  */}
           <Authorities />
         </div>
       </section>
@@ -59,7 +60,7 @@ export default function AboutPage() {
       {/* Sección del mapa */}
       <section className="w-full mb-8">
         <div className="p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-center text-[#0A02B0] mb-6">
+          <h2 className="text-3xl font-bold text-center text-[#0A02B0] mb-6">
             Ubicación de la Carrera de Ciencias de la Educación
           </h2>
           <div className="w-full mx-auto">

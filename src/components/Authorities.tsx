@@ -8,7 +8,7 @@ export default function Authorities() {
     return (
       <section className="p-6 mt-4 bg-white rounded-lg shadow-md w-">
       {/* Sección Nuestras Autoridades */}
-        <h2 className="mb-1 text-xl font-bold text-center">Nuestras Autoridades</h2>
+        <h2 className="text-3xl font-bold text-center text-[#0A02B0] mb-6">Nuestras Autoridades</h2>
         {/* Cards autoridades */}
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3 ">
           {institutionData && institutionData.autoridad.map((data,_i)=>(

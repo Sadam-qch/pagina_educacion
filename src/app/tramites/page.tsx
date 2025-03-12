@@ -29,7 +29,7 @@ export default function Page() {
   const [tramiteActivo, setTramiteActivo] = useState(tramites[0]);
 
   return (
-    <div className="">
+    <div className="pt-24">
       <h1 className="mb-1 text-3xl font-bold text-center">TRAMITES DE LA CARRERA DE EDUCACION</h1>
       <div className="flex items-center justify-center min-h-screen bg-cyan-800">
         <div className="flex w-auto overflow-hidden rounded-lg shadow-lg bg-slate-300 ">
