@@ -1,70 +1,75 @@
 "use client";
-import { useState } from "react";
-
-const tramites = [
-  {
-    id: 1,
-    titulo: "MODELO DE CARTAS PARA BIBLIOTECAS",
-    descripcion:
-      "Completa el formulario de inscripción y adjunta los documentos requeridos para ser parte de nuestra universidad.",
-    imagen: "https://img.freepik.com/foto-gratis/primer-plano-manos-pasando-contrato-al-empresario-irreconocible_1098-19612.jpg?semt=ais_hybrid", 
-  },
-  {
-    id: 2,
-    titulo: "MODELO DE CARTAS PARA KARDEX",
-    descripcion:
-      "Regístrate como estudiante nuevo proporcionando tus datos personales y académicos en nuestro sistema.",
-    imagen: "https://www.opinion.com.bo/asset/thumbnail,992,558,center,center/media/opinion/images/2021/03/18/2021031817091234346.jpg", 
-  },
-  {
-    id: 3,
-    titulo: "MODELO DE CARTAS PARA EL TUS",
-    descripcion:
-      "Selecciona tus materias y genera tu matrícula de manera fácil y rápida a través de nuestra plataforma en línea.",
-    imagen: "https://familiafeliz.gob.do/wp-content/uploads/2024/12/Exitosa-jornada-en-Hato-Mayor-1-768x521.jpg", 
-  },
-];
-
+import { FaFilePdf } from "react-icons/fa";
+import { useGazette } from "@/hooks/useGazette";
 export default function Page() {
-  const [tramiteActivo, setTramiteActivo] = useState(tramites[0]);
-
+  const { modelo_biblio } = useGazette();
   return (
-    <div className="pt-24">
-      <h1 className="mb-1 text-3xl font-bold text-center">TRAMITES DE LA CARRERA DE EDUCACION</h1>
-      <div className="flex items-center justify-center min-h-screen bg-cyan-800">
-        <div className="flex w-auto overflow-hidden rounded-lg shadow-lg bg-slate-300 ">
-          {/* Imagen */}
-          <div className="w-full md:w-1/2">
-            <img
-              src={tramiteActivo.imagen}
-              alt={tramiteActivo.titulo}
-              className="object-cover w-full h-64 md:h-full"
-            />
-          </div>
+    <div className="flex flex-col items-center min-h-screen p-8 pt-24 bg-gray-200">
+      {/* Título */}
+      <h1 className="w-full py-4 text-3xl font-bold text-center bg-white rounded-lg shadow-md">
+        TRAMITES 
+      </h1>
+    {/* primera parte */}
+      <h2 className="w-full py-4 text-3xl font-bold text-center ">
+      Tramites en la Carrera de Educacion
+      </h2>
+      <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
+        {/* Imagen a la izquierda */}
+        <div className="p-4 bg-white rounded-lg shadow-md md:w-1/2 hover:scale-105">
+          <img
+            src="https://educacion.upea.edu.bo/img/BIBLIOTECA.a5ae045c.jpg"
+            alt="Ejemplo"
+            className="object-cover w-full rounded-lg cursor-pointer "
+          />
+        </div>
 
-          {/* Contenido */}
-          <div className="flex-col justify-center w-full p-6 md:w-1/2">
-            <h2 className="text-2xl font-bold text-gray-800">{tramiteActivo.titulo}</h2>
-            <p className="mt-2 text-gray-600">{tramiteActivo.descripcion}</p>
-
-            {/* Selector de trámite */}
-            <div className="flex flex-wrap gap-2 mt-4">
-              {tramites.map((tramite) => (
-                <button
-                  key={tramite.id}
-                  onClick={() => setTramiteActivo(tramite)}
-                  className={`px-4 py-2 text-sm font-semibold rounded ${
-                    tramiteActivo.id === tramite.id ? "bg-blue-600 text-white" : "bg-gray-300 text-gray-700 border-y-2 border-x-2 hover:text-blue-700"
-                  }`}
-                >
-                  {tramite.titulo}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Contenedor de botones */}
+        <div className="flex flex-col items-center mt-4 space-y-4 md:mt-0 md:w-1/3">
+          <h2 className="text-xl font-semibold ">MODELO DE CARTAS PARA BIBLIOTECA</h2>
+          
+          {modelo_biblio && modelo_biblio.map((data) => (
+            <a
+              key={data.gaceta_tipo}
+              href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-4 px-5 py-1 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-500"
+            >
+              <FaFilePdf className="text-2xl text-red-600 " size={64} />
+              {data.gaceta_titulo}
+            </a>
+          ))}
+        </div>
+      </div>
+    {/* segunda parte */}
+      <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
+        {/* Contenedor de botones */}
+        <div className="flex flex-col items-center mt-4 space-y-4 md:mt-0 md:w-1/3">
+          <h2 className="text-xl font-semibold ">MODELO DE CARTAS PARA KARDEX</h2>
+          
+          {[1, 2, 3].map((item) => (
+            <a
+              key={item}
+              href="https://serviciopagina.upea.bo/Gaceta/e249d024-9e08-4ac2-b91c-05ea4d88a757.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-4 px-5 py-1 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-500"
+            >
+              <FaFilePdf className="text-2xl text-red-600 " size={64} />
+              SOLICITUD DE CERTIFICADO
+            </a>
+          ))}
+        </div>
+        {/* Imagen a la derecha */}
+        <div className="p-4 bg-white rounded-lg shadow-md md:w-1/2 hover:scale-105">
+          <img
+            src="https://educacion.upea.edu.bo/img/KARDEX.137fe77f.jpg"
+            alt="Ejemplo"
+            className="object-cover w-full rounded-lg cursor-pointer "
+          />
         </div>
       </div>
     </div>
-    
   );
 }
+
