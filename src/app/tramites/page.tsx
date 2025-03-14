@@ -26,7 +26,7 @@ export default function Page() {
         </div>
         {/* Contenedor de botones */}
         <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2">
-          <h2 className="text-xl font-semibold ">MODELO DE CARTAS PARA BIBLIOTECA</h2>
+          <h2 className="text-xl font-semibold">MODELO DE CARTAS PARA BIBLIOTECA</h2>
           
           {modelo_biblio && modelo_biblio.map((data) => (
             <a

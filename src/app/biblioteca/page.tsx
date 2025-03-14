@@ -26,7 +26,7 @@ export default function Page() {
   };
 
   return (
-    <section className="max-w-5xl p-6 mx-auto mt-4 bg-white rounded-lg shadow-md pt-28">
+    <section className="max-w-5xl p-6 pt-24 mx-auto mt-4 bg-white rounded-lg shadow-md">
       <h2 className="mb-4 text-3xl font-bold text-center">
         Visita Nuestra Biblioteca
       </h2>
@@ -38,7 +38,7 @@ export default function Page() {
               className="relative p-6 text-center bg-gray-100 rounded-lg shadow-lg"
             >
               {/* Contenedor con altura fija para evitar un slider demasiado grande */}
-              <div className="w-full h-64 overflow-hidden rounded-md">
+              <div className="w-full overflow-hidden rounded-md h-96">
                 <img
                   src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
                   alt={data.publicaciones_titulo}

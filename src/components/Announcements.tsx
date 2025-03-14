@@ -18,7 +18,7 @@ export default function Announcements() {
         <div className="flex justify-center">
           <div className="grid grid-cols-1 ">
             {/* Card 1 */}
-            <div className="max-w-md p-6 bg-blue-100 rounded-lg shadow-lg">
+            <div className="max-w-md p-6 rounded-lg shadow-lg bg-cyan-950">
               <a
                 href="https://serviciopagina.upea.bo/Convocatorias/b8e96b92-587e-44b5-ba76-1584a752e5af.png"
                 target="_blank"
@@ -26,10 +26,10 @@ export default function Announcements() {
                 <img
                   src="https://serviciopagina.upea.bo/Convocatorias/b8e96b92-587e-44b5-ba76-1584a752e5af.png"
                   alt="Imagen"
-                  className="object-contain w-full h-48 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
+                  className="object-contain w-full h-64 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
                 />
               </a>
-              <h4 className="mt-3 font-serif text-lg text-center">
+              <h4 className="mt-3 font-serif text-center text-white text-ellipsis">
                 Cs. de la Educación (U.P.E.A.) y la Dirección Departamental de
                 Educación de La Paz firman convenio.
               </h4>
@@ -49,7 +49,7 @@ export default function Announcements() {
             convenios.map((data, index) => (
               <div
                 key={`card-convenio-${index}`}
-                className="p-6 bg-blue-100 rounded-lg shadow-lg"
+                className="p-6 rounded-lg shadow-lg bg-cyan-950"
               >
                 <a
                   href={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
@@ -58,10 +58,10 @@ export default function Announcements() {
                   <img
                     src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
                     alt="Imagen"
-                    className="object-contain w-full h-48 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
+                    className="object-contain w-full h-64 transition-transform duration-300 rounded-t-lg cursor-pointer hover:scale-110"
                   />
                 </a>
-                <h4 className="mt-3 font-serif text-lg text-center text-gray-600">
+                <h4 className="mt-3 font-serif text-center text-white text-ellipsis">
                   {data.publicaciones_titulo}
                 </h4>
               </div>
