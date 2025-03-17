@@ -1,10 +1,10 @@
 "use client";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import WelcomeInformation from "../components/WelcomeInformation";
 import Announcements from "../components/Announcements";
 import Header from "@/components/Header";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
+import Congress from "@/components/Congress";
 
 export default function Page() {
   const {institutionData}  =useInstitutionData()
@@ -14,11 +14,10 @@ export default function Page() {
     <div className="flex flex-col min-h-screen">
       {/* Espaciado para evitar que el contenido quede debajo del menú */}
       <div>
-        {/* Información de bienvenida */}
-        <WelcomeInformation />
-  
+         
         {/* Contenedor principal */}
-        <div className="flex-grow w-full max-w-6xl px-4 py-6 mx-auto space-y-5 sm:px-6">
+        <div className="flex-grow w-full max-w-6xl px-4 mx-auto space-y-5 py-6s sm:px-6">
+          <Congress/>
           {/* Comunicados de la carrera */}
           <Announcements/>
 

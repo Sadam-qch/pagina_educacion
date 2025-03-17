@@ -1,10 +1,9 @@
 "use client";
-
-import Platforms from "@/components/Platforms";
 import Authorities from "@/components/Authorities";
 import Campuses from "@/components/Campuses";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
 import { stripHtml } from "@/util/formatText";
+import WelcomeInformation from "@/components/WelcomeInformation";
 
 export default function AboutPage() {
   // Usamos el hook para obtener los datos de la institución
@@ -17,7 +16,8 @@ export default function AboutPage() {
     <main className="flex flex-col items-center w-full max-w-6xl px-4 py-8 mx-auto">
       {/* Sección de Información Institucional */}
       <section className="w-full pt-16 mb-12">
-      
+        {/* Información de bienvenida */}
+        <WelcomeInformation />
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Misión</h1>
           <p className="mb-6 text-lg">
@@ -33,14 +33,6 @@ export default function AboutPage() {
           <p className="text-lg">
             {stripHtml(institutionData?.institucion_objetivos) || "Información no disponible"}
           </p>
-        </div>
-      </section>
-      
-      {/* Componentes adicionales en contenedores separados */}
-      <section className="w-full mb-12">
-        <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
-          {/**Plataformas Educacionales */}
-          <Platforms />
         </div>
       </section>
       
