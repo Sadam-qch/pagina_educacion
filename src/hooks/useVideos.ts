@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 export const useVideos = () => {
   const [videos, setVideos] = useState<Video[] | null>(null);
+  const [noticia, setNoticia] = useState<Video[]>();
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -11,6 +12,13 @@ export const useVideos = () => {
       try {
         const result = await institutionApi.getVideos();
         setVideos(result);
+        setNoticia(
+          result.filter(
+            (data) =>
+              data.video_tipo &&
+              data.video_tipo === "NOTICIA"
+          )
+        );
       } catch (error) {
         setError("Error al cargar los videos");
         console.error("Error fetching videos:", error);
@@ -20,5 +28,5 @@ export const useVideos = () => {
     fetchInstitution();
   }, []);
 
-  return { videos, error };
+  return { videos, noticia, error };
 };
