@@ -5,11 +5,13 @@ import { useState, useEffect } from "react";
 export const useVideos = () => {
   const [videos, setVideos] = useState<Video[] | null>(null);
   const [noticia, setNoticia] = useState<Video[]>();
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchInstitution = async () => {
       try {
+        setLoading(true);
         const result = await institutionApi.getVideos();
         setVideos(result);
         setNoticia(
@@ -28,5 +30,5 @@ export const useVideos = () => {
     fetchInstitution();
   }, []);
 
-  return { videos, noticia, error };
+  return { videos, noticia, loading, error };
 };
