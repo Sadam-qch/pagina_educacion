@@ -1,7 +1,7 @@
 "use client";
 export default function Page() {
   return (
-    <div className="flex flex-col pt-24">
+    <div className="flex flex-col pt-20">
       {/* Sección 1: Título principal */}
       <section className="py-12 bg-gray-100">
         <div className="container px-4 mx-auto text-center">
