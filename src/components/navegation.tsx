@@ -58,7 +58,7 @@ export default function Header() {
   return (
     <>
       {/* Menú fijo sobre la imagen */}
-      <nav className="fixed left-0 w-full h-[5rem] bg-[#662c14] bg-opacity-90 z-20">
+      <nav className="fixed left-0 w-full h-[5rem] bg-[#f56224] bg-opacity-100 z-20">
         <div className="flex items-center justify-between max-w-6xl px-6 mx-auto">
           {[
             {
@@ -90,9 +90,9 @@ export default function Header() {
               <li key={item.path}>
                 <a
                   href={item.path}
-                  className={` items-center hover:text-amber-400 px-2 py-1 rounded-lg ${
+                  className={` items-center hover:text-zinc-600 px-2 py-1 rounded-lg ${
                     activePath === item.path
-                      ? "border-2 border-amber-400 text-amber-400 font-bold"
+                      ? "border-2 border-black text-black font-bold"
                       : ""
                   }`}
                 >
@@ -105,16 +105,16 @@ export default function Header() {
             <li className="relative">
               <button
                 onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
-                className={`flex items-center px-4 hover:text-amber-400 transition-all rounded-lg ${
+                className={`flex items-center px-4 hover:text-zinc-600 transition-all rounded-lg ${
                   activePath.includes("/unidad_psicopedagogica")
-                    ? "border-2 border-amber-400 text-amber-400 font-bold"
+                    ? "border-2 border-black text-black font-bold"
                     : ""
                 }`}
               >
                 UNIDAD PSICOPEDAGÓGICA <ChevronDown size={18} className="ml-1 transition-all" />
               </button>
               {isSubmenuOpen && (
-                <ul className="absolute left-0 w-56 bg-[#b27126] text-white shadow-lg rounded-md mt-2 transition-transform transform translate-y-0 opacity-100">
+                <ul className="absolute left-0 w-56 bg-[#ff8652] text-white shadow-lg rounded-md mt-2 transition-transform transform translate-y-0 opacity-100">
                   {[
                     {
                       name: "Orientación Vocacional",
@@ -128,9 +128,9 @@ export default function Header() {
                     <li key={submenu.path}>
                       <a
                         href={submenu.path}
-                        className={`rounded-md block px-4 py-3 hover:bg-[#0c0c37] transition-all ${
+                        className={`rounded-md block  hover:text-zinc-600 px-4 py-3 border-black text-black transition-all ${
                           activePath === submenu.path
-                            ? "border-2 border-amber-400 bg-[#0c0c37] font-bold"
+                            ? "border-2 border-black text-black  font-bold"
                             : ""
                         }`}
                       >

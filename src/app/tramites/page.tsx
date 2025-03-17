@@ -6,7 +6,7 @@ export default function Page() {
   const { modelo_kardex } = useGazette();
   const { modelo_tus } = useGazette();
   return (
-    <div className="flex flex-col items-center min-h-screen p-8 pt-24 bg-gray-200">
+    <div className="flex flex-col items-center min-h-screen p-8 pt-20 bg-gray-200">
       {/* Título */}
       <h1 className="w-full py-4 text-3xl font-bold text-center bg-white rounded-lg shadow-md">
         TRAMITES 

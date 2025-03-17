@@ -1,12 +1,15 @@
 "use client";
+
+import Platforms from "@/components/Platforms";
+
 export default function Page() {
   return (
-    <div className="flex flex-col pt-24">
+    <div className="flex flex-col pt-20">
       {/* Sección 1: Título principal */}
-      <section className="py-12 bg-gray-100">
-        <div className="container px-4 mx-auto text-center">
+      <section className="py-12 bg-white">
+        <div className="container px-3 mx-auto text-center">
           <h1 className="text-5xl font-extrabold text-blue-700">
-            Educación Transformadora
+          Programa de Orientacion Pedagogica para la vocacion productiva tecnologica
           </h1>
         </div>
       </section>
@@ -19,9 +22,9 @@ export default function Page() {
             <div className="relative aspect-w-16 aspect-h-9">
               <iframe
                 className="w-full h-full rounded-lg shadow-lg"
-                src="https://www.youtube.com/embed/VIDEO_ID_EDUCATIVO" // Reemplaza VIDEO_ID_EDUCATIVO
+                src="https://www.youtube.com/embed/VIDEO_ID_EDUCATIVO" 
                 title="Video Educativo"
-                frameBorder="0"
+                frameBorder="1"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>
@@ -87,6 +90,13 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <section className="w-full mb-12">
+              <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
+                {/**Plataformas Educacionales */}
+                <Platforms />
+              </div>
+            </section>
 
       {/* Sección 4: Actividades con video y contenido dinámico */}
       <section className="py-12">

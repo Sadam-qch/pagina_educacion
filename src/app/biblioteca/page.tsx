@@ -21,7 +21,7 @@ export default function Page() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1800,
+    autoplaySpeed: 2000,
     arrows: false,
   };
 
