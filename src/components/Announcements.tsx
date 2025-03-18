@@ -37,7 +37,6 @@ export default function Announcements() {
           </div>
         </div>
 
-
         <h2 className="mb-4 text-4xl font-bold text-center">
           Convenios por Modalidad de Graduación
         </h2>

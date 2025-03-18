@@ -5,7 +5,6 @@ import { stripHtml } from "@/util/formatText";
 export default function WelcomeInformation() {
   const { institutionData } = useInstitutionData();
 
-
   return (
     <main className="flex flex-col items-center">
       <section>

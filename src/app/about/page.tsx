@@ -7,11 +7,16 @@ import WelcomeInformation from "@/components/WelcomeInformation";
 
 export default function AboutPage() {
   // Usamos el hook para obtener los datos de la institución
-  const { institutionData, loading} = useInstitutionData();
+  const { institutionData, loading } = useInstitutionData();
 
   // Manejo de estado de carga y errores
-  if (loading) return <div className="py-10 text-center">Cargando información institucional...</div>;
-  
+  if (loading)
+    return (
+      <div className="py-10 text-center">
+        Cargando información institucional...
+      </div>
+    );
+
   return (
     <main className="flex flex-col items-center w-full max-w-6xl px-4 py-8 mx-auto">
       {/* Sección de Información Institucional */}
@@ -21,34 +26,37 @@ export default function AboutPage() {
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Misión</h1>
           <p className="mb-6 text-lg">
-            {stripHtml(institutionData?.institucion_mision) || "Información no disponible"}
+            {stripHtml(institutionData?.institucion_mision) ||
+              "Información no disponible"}
           </p>
-          
+
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Visión</h1>
           <p className="mb-6 text-lg">
-            {stripHtml(institutionData?.institucion_vision) || "Información no disponible"}
+            {stripHtml(institutionData?.institucion_vision) ||
+              "Información no disponible"}
           </p>
-          
+
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Objetivos</h1>
           <p className="text-lg">
-            {stripHtml(institutionData?.institucion_objetivos) || "Información no disponible"}
+            {stripHtml(institutionData?.institucion_objetivos) ||
+              "Información no disponible"}
           </p>
         </div>
       </section>
-      
+
       <section className="w-full mb-12">
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           {/**Autoridades  */}
           <Authorities />
         </div>
       </section>
-      
+
       <section className="w-full mb-12">
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
           <Campuses />
         </div>
       </section>
-      
+
       {/* Sección del mapa */}
       <section className="w-full mb-8">
         <div className="p-6 bg-white rounded-lg shadow-md">

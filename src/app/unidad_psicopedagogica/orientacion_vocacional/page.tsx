@@ -4,49 +4,49 @@ import { useVideos } from "@/hooks/useVideos";
 import { stripHtml } from "@/util/formatText";
 
 export default function Page() {
-  const {orientacionVoc} = useVideos();
-  const {actividades} = useVideos();
+  const { orientacionVoc } = useVideos();
+  const { actividades } = useVideos();
   return (
-  
-    <div  className="flex flex-col pt-20">
-      
+    <div className="flex flex-col pt-20">
       {/* Sección 1: Título principal */}
       <section className="py-12 bg-white">
         <div className="container px-3 mx-auto text-center">
           <h1 className="text-5xl font-extrabold text-blue-700">
-          Programa de Orientacion Pedagogica para la vocacion productiva tecnologica
+            Programa de Orientacion Pedagogica para la vocacion productiva
+            tecnologica
           </h1>
         </div>
       </section>
       {/* Sección 2: Video educativo y descripción */}
-    {orientacionVoc && orientacionVoc.map((data) =>(
-      <section key={data.video_id} className="py-12">
-        <div className="container flex flex-col items-center gap-8 px-4 mx-auto md:flex-row">
-          {/* Bloque 1: */}
-          <div className="w-full md:w-1/2">
-            <div className="relative aspect-w-16 aspect-h-9">
-              <iframe
-                className="w-full rounded-lg shadow-lg h-96"
-                src={data.video_enlace} 
-                title="Video Educativo"
-                frameBorder="1"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+      {orientacionVoc &&
+        orientacionVoc.map((data) => (
+          <section key={data.video_id} className="py-12">
+            <div className="container flex flex-col items-center gap-8 px-4 mx-auto md:flex-row">
+              {/* Bloque 1: */}
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-w-16 aspect-h-9">
+                  <iframe
+                    className="w-full rounded-lg shadow-lg h-96"
+                    src={data.video_enlace}
+                    title="Video Educativo"
+                    frameBorder="1"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              {/* Bloque 2: Texto descriptivo */}
+              <div className="w-full md:w-1/2">
+                <h2 className="mb-4 text-3xl font-bold text-secondary">
+                  {data.video_titulo}
+                </h2>
+                <p className="text-lg text-justify text-gray-700">
+                  {stripHtml(data.video_breve_descripcion)}
+                </p>
+              </div>
             </div>
-          </div>
-          {/* Bloque 2: Texto descriptivo */}
-          <div className="w-full md:w-1/2">
-            <h2 className="mb-4 text-3xl font-bold text-secondary">
-              {data.video_titulo}
-            </h2>
-            <p className="text-lg text-justify text-gray-700">
-              {stripHtml(data.video_breve_descripcion)}
-            </p>
-          </div>
-        </div>
-      </section>
-    ))}
+          </section>
+        ))}
 
       <section className="w-full mb-12">
         <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
@@ -54,33 +54,33 @@ export default function Page() {
           <Platforms />
         </div>
       </section>
-    {/* Sección 4: Actividades con video y contenido dinámico */}
-    {actividades && actividades.map((data) =>(
-      <section key={data.video_id} className="py-12">
-        <div className="container flex flex-col items-center gap-8 px-4 mx-auto md:flex-row">
-          {/* Bloque 1: Video de actividades */}
-          <div className="w-full md:w-1/2">
-            <h2 className="mb-4 text-3xl font-bold text-blue-600 animate-pulse">
-              {data.video_titulo}
-            </h2>
-            <p className="mb-4 text-lg text-justify text-gray-700">
-              {stripHtml(data.video_breve_descripcion)}
-            </p>
-            <div className="relative aspect-w-16 aspect-h-9">
-              <iframe
-                className="w-full rounded-lg shadow-lg h-96"
-                src={data.video_enlace} 
-                title="Video de Actividades"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+      {/* Sección 4: Actividades con video y contenido dinámico */}
+      {actividades &&
+        actividades.map((data) => (
+          <section key={data.video_id} className="py-12">
+            <div className="container flex flex-col items-center gap-8 px-4 mx-auto md:flex-row">
+              {/* Bloque 1: Video de actividades */}
+              <div className="w-full md:w-1/2">
+                <h2 className="mb-4 text-3xl font-bold text-blue-600 animate-pulse">
+                  {data.video_titulo}
+                </h2>
+                <p className="mb-4 text-lg text-justify text-gray-700">
+                  {stripHtml(data.video_breve_descripcion)}
+                </p>
+                <div className="relative aspect-w-16 aspect-h-9">
+                  <iframe
+                    className="w-full rounded-lg shadow-lg h-96"
+                    src={data.video_enlace}
+                    title="Video de Actividades"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
-          </div>
-          
-        </div>
-      </section>
-    ))}
+          </section>
+        ))}
     </div>
   );
 }

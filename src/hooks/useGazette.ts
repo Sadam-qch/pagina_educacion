@@ -20,22 +20,22 @@ export const useGazette = () => {
           result.filter(
             (data) =>
               data.gaceta_tipo &&
-              data.gaceta_tipo === "MODELO DE CARTAS PARA BIBLIOTECA"
-          )
+              data.gaceta_tipo === "MODELO DE CARTAS PARA BIBLIOTECA",
+          ),
         );
         setModKardex(
           result.filter(
             (data) =>
               data.gaceta_tipo &&
-              data.gaceta_tipo === "MODELO DE CARTAS PARA KARDEX"
-          )
+              data.gaceta_tipo === "MODELO DE CARTAS PARA KARDEX",
+          ),
         );
         setModTus(
           result.filter(
             (data) =>
               data.gaceta_tipo &&
-              data.gaceta_tipo === "MODELOS DE CARTAS PARA EL TUS"
-          )
+              data.gaceta_tipo === "MODELOS DE CARTAS PARA EL TUS",
+          ),
         );
       } catch (error) {
         setError("Error al cargar las gacetas");

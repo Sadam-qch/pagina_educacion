@@ -15,7 +15,7 @@ export const useExternalLinks = () => {
       } catch (error) {
         setError("Error al cargar los enlaces externos");
         console.error("Error fetching external links:", error);
-      }finally {
+      } finally {
         setloading(false);
       }
     };

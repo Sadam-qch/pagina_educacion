@@ -21,47 +21,37 @@ export const useVideos = () => {
         setVideos(result);
         setNoticia(
           result.filter(
-            (data) =>
-              data.video_tipo &&
-              data.video_tipo === "NOTICIA"
-          )
+            (data) => data.video_tipo && data.video_tipo === "NOTICIA",
+          ),
         );
         setObjetivo(
           result.filter(
             (data) =>
               data.video_tipo &&
-              data.video_tipo === "OBJETIVO DEL APOYO EDUCATIVO"
-          )
+              data.video_tipo === "OBJETIVO DEL APOYO EDUCATIVO",
+          ),
         );
         setApoyoPedagogico(
           result.filter(
-            (data) =>
-              data.video_tipo &&
-              data.video_tipo === "APOYO PEDAGOGICO"
-          )
+            (data) => data.video_tipo && data.video_tipo === "APOYO PEDAGOGICO",
+          ),
         );
         setOrientacionVoc(
           result.filter(
             (data) =>
-              data.video_tipo &&
-              data.video_tipo === "ORIENTACION VOCACIONAL"
-          )
+              data.video_tipo && data.video_tipo === "ORIENTACION VOCACIONAL",
+          ),
         );
         setTestimonio(
           result.filter(
-            (data) =>
-              data.video_tipo &&
-              data.video_tipo === "TESTIMONIO"
-          )
+            (data) => data.video_tipo && data.video_tipo === "TESTIMONIO",
+          ),
         );
         setActividades(
           result.filter(
-            (data) =>
-              data.video_tipo &&
-              data.video_tipo === "ACTIVIDADES"
-          )
+            (data) => data.video_tipo && data.video_tipo === "ACTIVIDADES",
+          ),
         );
-        
       } catch (error) {
         setError("Error al cargar los videos");
         console.error("Error fetching videos:", error);
@@ -71,5 +61,15 @@ export const useVideos = () => {
     fetchInstitution();
   }, []);
 
-  return { videos, noticia, objetivoApoyoEducativo, apoyoPedagogico,orientacionVoc,testimonio,actividades, loading, error };
+  return {
+    videos,
+    noticia,
+    objetivoApoyoEducativo,
+    apoyoPedagogico,
+    orientacionVoc,
+    testimonio,
+    actividades,
+    loading,
+    error,
+  };
 };

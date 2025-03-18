@@ -26,7 +26,7 @@ export const useAcademicData = () => {
             result.find((data) => data.gaceta_tipo === "HORARIO") ?? null,
           calendario:
             result.find(
-              (data) => data.gaceta_tipo === "CALENDARIO ACADEMICO"
+              (data) => data.gaceta_tipo === "CALENDARIO ACADEMICO",
             ) ?? null,
           planEstudio:
             result.find((data) => data.gaceta_tipo === "PLAN DE ESTUDIO") ??

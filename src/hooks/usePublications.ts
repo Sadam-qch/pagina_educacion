@@ -19,22 +19,21 @@ export const usePublication = () => {
         setConvenios(
           result.filter(
             (data) =>
-              data.publicaciones_tipo && data.publicaciones_tipo === "CONVENIO"
-          )
+              data.publicaciones_tipo && data.publicaciones_tipo === "CONVENIO",
+          ),
         );
         setBiblioteca(
           result.filter(
             (data) =>
               data.publicaciones_tipo &&
-              data.publicaciones_tipo === "BIBLIOTECA"
-          )
+              data.publicaciones_tipo === "BIBLIOTECA",
+          ),
         );
         setSedes(
           result.filter(
             (data) =>
-              data.publicaciones_tipo &&
-              data.publicaciones_tipo === "SEDES"
-          )
+              data.publicaciones_tipo && data.publicaciones_tipo === "SEDES",
+          ),
         );
       } catch (error) {
         setError("Error al cargar las publicaciones");

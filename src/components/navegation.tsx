@@ -33,18 +33,19 @@ export default function Header() {
     const fetchAbout = async () => {
       try {
         const response = await fetch(
-          "https://serviciopagina.upea.bo/api/InstitucionUPEA/12"
+          "https://serviciopagina.upea.bo/api/InstitucionUPEA/12",
         );
         if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
         const result = await response.json();
 
         const tempLogoDiv = document.createElement("div");
         tempLogoDiv.innerHTML =
-          result?.Descripcion?.institucion_logo || "No se encontró información.";
+          result?.Descripcion?.institucion_logo ||
+          "No se encontró información.";
         setLogo(
           tempLogoDiv.textContent ||
             tempLogoDiv.innerText ||
-            "No se encontró información."
+            "No se encontró información.",
         );
       } catch (error) {
         setLogo("No encontramos el Logo...");
@@ -111,7 +112,8 @@ export default function Header() {
                     : ""
                 }`}
               >
-                UNIDAD PSICOPEDAGÓGICA <ChevronDown size={18} className="ml-1 transition-all" />
+                UNIDAD PSICOPEDAGÓGICA{" "}
+                <ChevronDown size={18} className="ml-1 transition-all" />
               </button>
               {isSubmenuOpen && (
                 <ul className="absolute left-0 w-56 bg-[#ff8652] text-white shadow-lg rounded-md mt-2 transition-transform transform translate-y-0 opacity-100">
