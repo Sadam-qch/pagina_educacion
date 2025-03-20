@@ -1,15 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
-import DOMPurify from "dompurify";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation"; // Obtener la ruta actual
+import { useInstitutionData } from "@/hooks/useInstitutionData";
 
 export default function Header() {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [logo, setLogo] = useState("Cargando...");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activePath, setActivePath] = useState(""); // Ruta activa
+  const { institutionData } = useInstitutionData();
 
   const pathname = usePathname(); // Obtener la ruta actual
 
@@ -21,6 +21,7 @@ export default function Header() {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
         setIsSubmenuOpen(false);
+        setIsMobileMenuOpen(false);
       }
       setLastScrollY(window.scrollY);
     };
@@ -29,72 +30,37 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  useEffect(() => {
-    const fetchAbout = async () => {
-      try {
-        const response = await fetch(
-          "https://serviciopagina.upea.bo/api/InstitucionUPEA/12",
-        );
-        if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-        const result = await response.json();
-
-        const tempLogoDiv = document.createElement("div");
-        tempLogoDiv.innerHTML =
-          result?.Descripcion?.institucion_logo ||
-          "No se encontró información.";
-        setLogo(
-          tempLogoDiv.textContent ||
-            tempLogoDiv.innerText ||
-            "No se encontró información.",
-        );
-      } catch (error) {
-        setLogo("No encontramos el Logo...");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAbout();
-  }, []);
+  const menuItems = [
+    { name: "INICIO", path: "/" },
+    { name: "SOBRE LA CARRERA", path: "/about" },
+    { name: "TRÁMITES", path: "/tramites" },
+    { name: "BIBLIOTECA", path: "/biblioteca" },
+  ];
 
   return (
     <>
       {/* Menú fijo sobre la imagen */}
       <nav className="fixed left-0 w-full h-[5rem] bg-[#f56224] bg-opacity-100 z-20">
         <div className="flex items-center justify-between max-w-6xl px-6 mx-auto">
-          {[
-            {
-              logo: loading ? "Cargando..." : DOMPurify.sanitize(logo),
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center space-y-4 sm:flex-row sm:items-start sm:space-y-0 sm:space-x-6"
-            >
-              <div className="flex flex-col items-center">
-                <img
-                  src={`https://serviciopagina.upea.bo/InstitucionUpea/${item.logo}`}
-                  alt="Logo"
-                  className="object-contain w-20 "
-                />
-              </div>
-            </div>
-          ))}
+          {/* Logo */}
+          <div className="flex items-center">
+            <img
+              src={`${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/${institutionData?.institucion_logo}`}
+              alt="Logo"
+              className="object-contain w-20"
+            />
+          </div>
 
-          {/* Menú de navegación */}
+          {/* Menú de navegación en pantallas grandes */}
           <ul className="hidden space-x-6 text-lg text-white md:flex">
-            {[
-              { name: "INICIO", path: "/" },
-              { name: "SOBRE LA CARRERA", path: "/about" },
-              { name: "TRÁMITES", path: "/tramites" },
-              { name: "BIBLIOTECA", path: "/biblioteca" },
-            ].map((item) => (
+            {menuItems.map((item) => (
               <li key={item.path}>
                 <a
                   href={item.path}
-                  className={` items-center hover:text-zinc-600 px-2 py-1 rounded-lg ${
+                  className={`px-2 py-1 rounded-lg transition-all hover:text-black ${
                     activePath === item.path
                       ? "border-2 border-black text-black font-bold"
-                      : ""
+                      : "hover:text-black"
                   }`}
                 >
                   {item.name}
@@ -106,7 +72,7 @@ export default function Header() {
             <li className="relative">
               <button
                 onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
-                className={`flex items-center px-4 hover:text-zinc-600 transition-all rounded-lg ${
+                className={`flex items-center px-4 transition-all rounded-lg hover:text-black ${
                   activePath.includes("/unidad_psicopedagogica")
                     ? "border-2 border-black text-black font-bold"
                     : ""
@@ -130,11 +96,12 @@ export default function Header() {
                     <li key={submenu.path}>
                       <a
                         href={submenu.path}
-                        className={`rounded-md block  hover:text-zinc-600 px-4 py-3 border-black text-black transition-all ${
+                        className={`rounded-md block px-4 py-3 transition-all hover:text-black ${
                           activePath === submenu.path
-                            ? "border-2 border-black text-black  font-bold"
+                            ? "border-2 border-black text-black font-bold"
                             : ""
                         }`}
+                        onClick={() => setIsSubmenuOpen(false)}
                       >
                         {submenu.name}
                       </a>
@@ -144,7 +111,76 @@ export default function Header() {
               )}
             </li>
           </ul>
+
+          {/* Botón de menú responsive en pantallas pequeñas */}
+          <button
+            className="md:hidden text-white"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
         </div>
+
+        {/* Menú desplegable en pantallas pequeñas */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-[5rem] left-0 w-full bg-[#f56224] text-white  flex flex-col items-center space-y-4 py-4 shadow-lg z-10">
+            {menuItems.map((item) => (
+              <a
+                key={item.path}
+                href={item.path}
+                className={`w-full text-center py-2 transition-all hover:bg-orange-200 hover:text-black rounded-md ${
+                  activePath === item.path
+                    ? "border-2 border-black text-black font-bold"
+                    : ""
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+
+            {/* Submenú Unidad Psicopedagógica */}
+            <div className="relative w-full text-center">
+              <button
+                onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
+                className="w-full py-2 transition-all flex items-center justify-center rounded-md hover:text-black hover:bg-orange-200"
+              >
+                UNIDAD PSICOPEDAGÓGICA
+                <ChevronDown size={18} className="ml-1 transition-all" />
+              </button>
+              {isSubmenuOpen && (
+                <div className=" w-full flex flex-col items-center">
+                  {[
+                    {
+                      name: "Orientación Vocacional",
+                      path: "/unidad_psicopedagogica/orientacion_vocacional",
+                    },
+                    {
+                      name: "Apoyo Educativo",
+                      path: "/unidad_psicopedagogica/apoyo_educativo",
+                    },
+                  ].map((submenu) => (
+                    <a
+                      key={submenu.path}
+                      href={submenu.path}
+                      className={`w-full text-center py-2 transition-all hover:text-black rounded-md hover:bg-orange-200  ${
+                        activePath === submenu.path
+                          ? "border-2 border-black text-black font-bold"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        setIsSubmenuOpen(false);
+                        setIsMobileMenuOpen(false);
+                      }}
+                    >
+                      {submenu.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );
