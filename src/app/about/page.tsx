@@ -28,10 +28,10 @@ export default function AboutPage() {
         </h1>
       </div>
       {/* Sección de Información Institucional */}
-      <section className="w-full pt-16 mb-12 px-12 ">
+      <section className="container mx-auto w-full pt-10 mb-12 px-5">
         {/* Información de bienvenida */}
         <WelcomeInformation />
-        <div className=" mb-8 bg-white rounded-lg shadow-md px-12 text-justify">
+        <div className="text-justify mt-6">
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Misión</h1>
           <p className="mb-6 text-lg">
             {stripHtml(institutionData?.institucion_mision) ||
@@ -48,7 +48,30 @@ export default function AboutPage() {
           <p className="text-lg">
             {stripHtml(institutionData?.institucion_objetivos) ||
               "Información no disponible"}
+            
           </p>
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg text-gray-700 mt-4">
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Investigador</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Proyectista</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Planificador y evaluador</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Administrador</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Orientador</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-500">➜</span> <span>Asesor</span>
+              </div>
+            </div>
+            </div>
         </div>
       </section>
 
