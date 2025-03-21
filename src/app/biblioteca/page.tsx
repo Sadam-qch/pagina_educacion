@@ -21,7 +21,7 @@ export default function Page() {
           biblioteca.map((data) => (
             <div
               key={data.publicaciones_id}
-              className="relative p-6 text-center bg-cyan-950 rounded-lg shadow-lg"
+              className="relative p-6 text-center bg-cyan-950 rounded-lg shadow-lg cursor-pointer hover:scale-105"
             >
               {/* Contenedor con altura fija para evitar un slider demasiado grande */}
               <div className="w-full overflow-hidden rounded-md h-96">
