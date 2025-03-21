@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sitio web de la Carrera de: INGENIERIA DE SISTEMAS
 
-## Getting Started
+## 🛠️ Tecnologías Utilizadas
 
-First, run the development server:
+- [**Next.js**](https://nextjs.org/) (v.15): Framework basado en React que permite construir aplicaciones web modernas, eficientes y con capacidades de renderizado en el servidor.
+- [**React**](https://reactjs.org/) (v.19): Biblioteca de JavaScript para construir interfaces de usuario interactivas y dinámicas.
+- [**Node.js**](https://nodejs.org/) (v.22): Entorno de ejecución para JavaScript, utilizado para desarrollar el backend de la aplicación.
+- [**Taiwind CSS**](https://tailwindcss.com/): (v.3 )framework de CSS utilitario que permite diseñar interfaces de usuario rápidamente usando clases predefinidas en lugar de escribir CSS manualmente.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ⚙️ INSTALACIÓN  
+Para la instalación, lee el archivo [/INSTALL.md](./INSTALL.md).
+
+
+## 📁 Estructura del proyecto
+
+```
+src/
+├── app/                    # Rutas y componentes de página (Next.js 15 App Router)
+├── components/             # Componentes reutilizables
+├── hooks/                  # Hooks personalizados
+├── lib/                    # Utilidades
+├── types/                  # Tipos y interfaces globales
+├── utils/                  # Utilidades y helpers
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Personalización del diseño
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Modifica los archivos en `src/app/globals.css` para personalizar los temas claro y oscuro:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```css
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
-## Learn More
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🤝 Contribución
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Las contribuciones son bienvenidas. Por favor, sigue estas pautas:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Haz fork del repositorio
+2. Crea una nueva rama (`git checkout -b feat/amazing-feature`)
+3. Haz commit de tus cambios (`git commit -m 'feat: add amazing feature'`)
+4. Haz push a la rama (`git push origin feat/amazing-feature`)
+5. Abre un Pull Request
 
-## Deploy on Vercel
+## 📞 Contacto
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Para más información, contacta a: [Maribel Carola](mailto:m.c.c.mabel21@gmail.com)
