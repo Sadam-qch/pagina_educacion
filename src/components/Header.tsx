@@ -12,43 +12,40 @@ export default function Header({ title }: HeaderProps) {
   const { institutionData } = useInstitutionData();
 
   const settings = {
-    dots: true, // Puntos de navegación
-    infinite: true, // Desplazamiento infinito
-    speed: 500, // Velocidad de transición (ms)
-    slidesToShow: 1, // Muestra 1 imagen a la vez
-    slidesToScroll: 1, // Avanza 1 imagen por vez
-    autoplay: true, // Activar autoplay
-    autoplaySpeed: 1500, // Cambia cada 1/2 segundo
-    arrows: false, // Oculta flechas (opcional)
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
   };
 
   return (
-    <section className="">
+    <section className="w-full">
       {institutionData && (
         <Slider {...settings}>
           {institutionData.portada.map((data, _i) => (
             <div
               key={`card-${_i}`}
-              className="flex items-center justify-center w-full"
+              className="w-full"
             >
               <div
-                className="relative flex items-center justify-start w-full min-h-[70vh] md:min-h-screen text-white bg-center bg-no-repeat"
+                className="relative flex items-center justify-start w-full h-screen md:h-[90vh] sm:h-[80vh] text-white bg-no-repeat bg-cover"
                 style={{
                   backgroundImage: `url('${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Portada/${data.portada_imagen}')`,
-                  backgroundSize: "contain", // Muestra la imagen completa
                 }}
               >
                 {/* Contenido de la cabecera */}
-                <div className="relative z-10 max-w-3xl p-6 px-10 ">
-                  <h1 className="font-bold text-left text-white md:text-2xl">
+                <div className="relative z-10 max-w-3xl p-6 px-10 bg-opacity-50 rounded-lg">
+                  <h1 className="text-lg font-semibold text-left text-white md:text-2xl">
                     {data.portada_subtitulo}
-                  </h1>{" "}
-                  <br />
-                  <h1 className="text-3xl font-bold text-left text-white md:text-5xl animate-pulse">
+                  </h1>
+                  <h1 className="text-6xl font-bold text-left text-white md:text-5xl animate-pulse">
                     {data.portada_titulo}
-                  </h1>{" "}
-                  <br />
-                  <h1 className="text-3xl font-bold text-left text-white md:text-2xl">
+                  </h1>
+                  <h1 className="text-xl font-bold text-left text-white md:text-2xl">
                     Carrera acreditada
                   </h1>
                 </div>

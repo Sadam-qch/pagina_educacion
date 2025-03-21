@@ -9,14 +9,22 @@ export default function Page() {
   return (
     <div className="flex flex-col pt-20">
       {/* Sección 1: Título principal */}
-      <section className="py-12 bg-white">
-        <div className="container px-3 mx-auto text-center">
+      <section>
+      <div
+        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
+         >
+        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
+          ORIENTACIÓN VOCACIONAL
+        </h1>
+      </div>
+        <div className="container py-20 mx-auto text-center">
           <h1 className="text-5xl font-extrabold text-blue-700">
-            Programa de Orientacion Pedagogica para la vocacion productiva
-            tecnologica
+            PROGRAMA DE ORIENTACIÓN PEDAGOGICA PARA LA VOCACIÓN PRODUCTIVA
+            TECNOLÓGICA
           </h1>
         </div>
-      </section>
+      </section >
       {/* Sección 2: Video educativo y descripción */}
       {orientacionVoc &&
         orientacionVoc.map((data) => (
@@ -54,14 +62,15 @@ export default function Page() {
           <Platforms />
         </div>
       </section>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 p-6">
       {/* Sección 4: Actividades con video y contenido dinámico */}
       {actividades &&
         actividades.map((data) => (
-          <section key={data.video_id} className="py-12">
-            <div className="container flex flex-col items-center gap-8 px-4 mx-auto md:flex-row">
+          <section key={data.video_id} className="py-12 px-5">
+            <div className="container flex flex-col items-center">
               {/* Bloque 1: Video de actividades */}
-              <div className="w-full md:w-1/2">
-                <h2 className="mb-4 text-3xl font-bold text-blue-600 animate-pulse">
+              <div className="w-full">
+                <h2 className="mb-4 text-3xl text-center font-bold text-black">
                   {data.video_titulo}
                 </h2>
                 <p className="mb-4 text-lg text-justify text-gray-700">
@@ -81,6 +90,7 @@ export default function Page() {
             </div>
           </section>
         ))}
+      </div>
     </div>
   );
 }

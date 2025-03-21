@@ -9,14 +9,19 @@ export default function Page() {
   return (
     <div className="flex flex-col pt-20">
       {/* Sección 1: Título principal */}
-      <section className="py-12 bg-gray-100">
-        <div className="container px-4 mx-auto text-center">
-          <h1 className="text-5xl font-extrabold text-blue-700 animate-pulse text-secondary">
+      <div
+        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
+         >
+        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
+          PROGRAMA DE APOYO EDUCATIVO
+        </h1>
+      </div>
+      <div className="container py-20 mx-auto text-center">
+          <h1 className="text-5xl animate-pulse font-extrabold text-blue-700">
             PROGRAMA DE APOYO EDUCATIVO
           </h1>
         </div>
-      </section>
-
       {/* Sección 2: Video educativo y descripción */}
       {objetivoApoyoEducativo &&
         objetivoApoyoEducativo.map((data) => (

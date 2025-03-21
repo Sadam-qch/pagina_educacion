@@ -6,14 +6,21 @@ export default function Page() {
   const { modelo_kardex } = useGazette();
   const { modelo_tus } = useGazette();
   return (
-    <div className="flex flex-col items-center min-h-screen p-8 pt-20 bg-gray-200">
+    <div className="flex flex-col items-center min-h-screen pt-20">
       {/* Título */}
-      <h1 className="w-full py-4 text-3xl font-bold text-center bg-white rounded-lg shadow-md">
-        TRAMITES
-      </h1>
-      <h2 className="w-full py-4 text-3xl font-bold text-center ">
-        Tramites en la Carrera de Educacion
-      </h2>
+      <div
+        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
+         >
+        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
+          TRAMITES
+        </h1>
+      </div>
+      <div className="container py-20 mx-auto text-center">
+          <h1 className="text-5xl font-extrabold text-blue-700">
+            TRAMITES DE LA CARRERA DE EDUCACIÓN
+          </h1>
+        </div>
       {/* primera parte */}
       <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
         {/* Imagen a la izquierda */}
@@ -25,8 +32,8 @@ export default function Page() {
           />
         </div>
         {/* Contenedor de botones */}
-        <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2">
-          <h2 className="text-xl font-semibold">
+        <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2 ">
+          <h2 className="text-xl font-semibold text-center">
             MODELO DE CARTAS PARA BIBLIOTECA
           </h2>
 
@@ -57,7 +64,7 @@ export default function Page() {
         </div>
         {/* Contenedor de botones */}
         <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2">
-          <h2 className="text-xl font-semibold ">
+          <h2 className="text-xl font-semibold text-center">
             MODELO DE CARTAS PARA KARDEX
           </h2>
 

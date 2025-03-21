@@ -18,12 +18,20 @@ export default function AboutPage() {
     );
 
   return (
-    <main className="flex flex-col items-center w-full max-w-6xl px-4 py-8 mx-auto">
+    <main className="">
+      <div
+        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
+         >
+        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 rounded-lg">
+          ACERCA DE LA CARRERA
+        </h1>
+      </div>
       {/* Sección de Información Institucional */}
-      <section className="w-full pt-16 mb-12">
+      <section className="w-full pt-16 mb-12 px-12 ">
         {/* Información de bienvenida */}
         <WelcomeInformation />
-        <div className="p-6 mb-8 bg-white rounded-lg shadow-md">
+        <div className=" mb-8 bg-white rounded-lg shadow-md px-12 text-justify">
           <h1 className="text-3xl font-bold text-[#0A02B0] mb-2">Misión</h1>
           <p className="mb-6 text-lg">
             {stripHtml(institutionData?.institucion_mision) ||

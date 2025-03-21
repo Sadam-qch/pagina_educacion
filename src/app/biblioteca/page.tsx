@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { usePublication } from "@/hooks/usePublications";
-import { stripHtml } from "@/util/formatText";
 
 export default function Page() {
   const { biblioteca, loading } = usePublication();
@@ -10,12 +9,21 @@ export default function Page() {
     return <p>cargando....</p>;
   }
   return (
-    <div className=" p-6 pt-24 ">
-      <h2 className="mb-4 text-3xl font-bold text-center">
-        Visita Nuestra Biblioteca
-      </h2>
-    
-    <section className=" grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="flex flex-col pt-20 ">
+      <div
+        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
+        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
+         >
+        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
+          VISITA NUESTRA BIBLIOTECA
+        </h1>
+      </div>
+      <div className="container py-20 mx-auto text-center">
+          <h1 className="text-5xl font-extrabold text-blue-700">
+            BIBLIOTECA
+          </h1>
+        </div>
+    <section className="p-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
       
         {biblioteca &&
           biblioteca.map((data) => (

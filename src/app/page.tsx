@@ -15,7 +15,7 @@ export default function Page() {
         {/* Espaciado para evitar que el contenido quede debajo del menú */}
         <div>
           {/* Contenedor principal */}
-          <div className="flex-grow w-full max-w-6xl px-4 mx-auto space-y-5 py-6s sm:px-6">
+          <div className="flex-grow w-full max-w-6xl mx-auto space-y-5 sm:px-6">
             <Congress />
             {/* Comunicados de la carrera */}
             <Announcements />
