@@ -18,7 +18,7 @@ export default function AboutPage() {
     );
 
   return (
-    <main className="">
+    <main className="pt-20">
       <div
         className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
         style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
