@@ -1,117 +1,115 @@
 "use client";
-import { FaFilePdf } from "react-icons/fa";
 import { useGazette } from "@/hooks/useGazette";
+
 export default function Page() {
   const { modelo_biblio } = useGazette();
   const { modelo_kardex } = useGazette();
   const { modelo_tus } = useGazette();
+   
   return (
-    <div className="flex flex-col items-center min-h-screen pt-20">
-      {/* Título */}
-      <div
-        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
-         >
-        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
-          TRAMITES
-        </h1>
+    <>
+      <div className="container-fluid bg-primary py-5 mb-5 page-header">
+        <div className="container py-5">
+          <div className="row justify-content-center">
+            <div className="col-lg-10 text-center">
+              <h1 className="display-3 text-white animated slideInDown">Tramites</h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="container py-20 mx-auto text-center">
-          <h1 className="text-5xl font-extrabold text-blue-700">
-            TRAMITES DE LA CARRERA DE EDUCACIÓN
-          </h1>
-        </div>
-      {/* primera parte */}
-      <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
-        {/* Imagen a la izquierda */}
-        <div className="p-4 bg-white rounded-lg shadow-md md:w-1/2 hover:scale-105">
-          <img
-            src="https://educacion.upea.edu.bo/img/BIBLIOTECA.a5ae045c.jpg"
-            alt="Ejemplo"
-            className="object-cover w-full rounded-lg cursor-pointer "
-          />
-        </div>
-        {/* Contenedor de botones */}
-        <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2 ">
-          <h2 className="text-xl font-semibold text-center">
-            MODELO DE CARTAS PARA BIBLIOTECA
-          </h2>
+      
+      <div className="container-xxl py-5">
+        <div className="container">
+          <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 className="section-title bg-white text-center text-primary px-3">Tramites</h6>
+            <h1 className="mb-5">Tramites en la carrera de Educacion</h1>
+          </div>
 
-          {modelo_biblio &&
-            modelo_biblio.map((data) => (
-              <a
-                key={data.gaceta_id}
-                href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-4 px-5 py-1 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-500"
-              >
-                <FaFilePdf className="text-2xl text-red-600 " size={64} />
-                {data.gaceta_titulo}
-              </a>
-            ))}
-        </div>
-      </div>
-      {/* segunda parte */}
-      <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
-        {/* Imagen a la derecha */}
-        <div className="p-4 bg-white rounded-lg shadow-md md:w-1/2 hover:scale-105">
-          <img
-            src="https://educacion.upea.edu.bo/img/KARDEX.137fe77f.jpg"
-            alt="Ejemplo"
-            className="object-cover w-full rounded-lg cursor-pointer "
-          />
-        </div>
-        {/* Contenedor de botones */}
-        <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2">
-          <h2 className="text-xl font-semibold text-center">
-            MODELO DE CARTAS PARA KARDEX
-          </h2>
+          {/* <!-- cartas para Biblioteca Start --> */}
+          <div className="container-xxl py-5">
+            <div className="container">
+              <div className="row g-5">
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
+                  <div className="position-relative h-100">
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/BIBLIOEST.JPG" alt=""
+                      style={{ objectFit: "cover" }} />
+                  </div>
+                </div>
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                  <h6 className="section-title bg-white text-start text-primary pe-3">
+                    Modelo de cartas para Biblioteca</h6>
+                  {modelo_biblio?.map((data, _i) => (
+                    <a key={`mod-biblio-${_i}`}
+                      href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                      className="nav-item nav-link">
+                      {data.gaceta_titulo}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <!-- cartas para Biblioteca End --> */}
 
-          {modelo_kardex &&
-            modelo_kardex.map((data) => (
-              <a
-                key={data.gaceta_id}
-                href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-4 px-5 py-1 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-500"
-              >
-                <FaFilePdf className="text-2xl text-red-600 " size={64} />
-                {data.gaceta_titulo}
-              </a>
-            ))}
-        </div>
-      </div>
-      {/* tercera parte */}
-      <div className="flex flex-col items-center mt-6 md:flex-row md:items-start md:space-x-8 ">
-        {/* Imagen a la izquierda */}
-        <div className="p-4 bg-white rounded-lg shadow-md md:w-1/2 hover:scale-105">
-          <img
-            src="https://educacion.upea.edu.bo/img/TUS.c32021a8.jpg"
-            alt="Ejemplo"
-            className="object-cover w-full rounded-lg cursor-pointer "
-          />
-        </div>
-        {/* Contenedor de botones */}
-        <div className="flex flex-col items-start mt-4 space-y-4 md:mt-0 md:w-1/2">
-          <h2 className="text-xl font-semibold ">MODELO DE CARTAS PARA TUS</h2>
+          {/* <!-- cartas para Kardex --> */}
+          <div className="container-xxl py-5">
+            <div className="container">
+              <div className="row g-5">
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
+                  <div className="position-relative h-100">
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/kardex.JPG" alt=""
+                      style={{ objectFit: "cover" }} />
+                  </div>
+                </div>
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                  <h6 className="section-title bg-white text-start text-primary pe-3">
+                    Modelo de cartas para Kardex
+                  </h6>
+                  {modelo_kardex?.map((data, _i) => (
+                    <a key={`mod-kardex-${_i}`}
+                      href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                      className="nav-item nav-link">
+                      {data.gaceta_titulo}
+                    </a>
 
-          {modelo_tus &&
-            modelo_tus.map((data) => (
-              <a
-                key={data.gaceta_id}
-                href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-4 px-5 py-1 text-lg font-semibold text-black bg-yellow-400 rounded-full shadow-lg hover:bg-yellow-500"
-              >
-                <FaFilePdf className="text-2xl text-red-600 " size={64} />
-                {data.gaceta_titulo}
-              </a>
-            ))}
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <!-- cartas para Kardex End --> */}
+
+          {/* <!-- cartas para el TUS  Start --> */}
+          <div className="container-xxl py-5">
+            <div className="container">
+              <div className="row g-5">
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
+                  <div className="position-relative h-100">
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/tus.JPG" alt=""
+                      style={{ objectFit: "cover" }} />
+                  </div>
+                </div>
+                <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                  <h6 className="section-title bg-white text-start text-primary pe-3">
+                    Modelos de cartas para el TUS
+                  </h6>
+                  {
+                    modelo_tus?.map((data, _i) => (
+                      <a key={`mod-tus-${_i}`}
+                        href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                        className="nav-item nav-link">
+                        {data.gaceta_titulo}
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <!-- cartas para el TUS  End --> */}
+
         </div>
       </div>
-    </div>
+    </>
   );
 }
