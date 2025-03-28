@@ -3,6 +3,8 @@ import "./globals.css";
 import Navegation from "../components/navegation";
 import Footer from "../components/Footer";
 import ScriptLoader from "@/components/ScriptLoader";
+import { Navbar } from "@/components/Navbar";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,9 +53,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* <Navegation /> */}
+        <header>
+          <Navbar />
+        </header>
+
         {children}
-        {/* <Footer /> */}
+
+        <BackToTopButton />
+        <Footer />
         <ScriptLoader />
       </body>
     </html>
