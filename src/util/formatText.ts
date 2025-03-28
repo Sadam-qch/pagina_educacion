@@ -1,3 +1,4 @@
+"use client";
 import dayjs from "dayjs";
 
 /**
@@ -30,3 +31,46 @@ export const stripHtml = (html?: string): string => {
   const doc = parser.parseFromString(html, "text/html");
   return doc.body.textContent || "";
 };
+
+/**
+ * Limpia y sanitiza una cadena de HTML para prevenir ataques XSS (Cross-Site Scripting).
+ *
+ * Esta función convierte una cadena de HTML en texto seguro escapando
+ * cualquier etiqueta o código HTML potencialmente peligroso.
+ *
+ * @param {string} html - La cadena de HTML a sanitizar.
+ * @returns {string} - La cadena sanitizada con las etiquetas HTML escapadas.
+ *
+ * @example
+ * const unsafeHTML = "<script>alert('Malicioso')</script>";
+ * const safeHTML = sanitizeHTML(unsafeHTML);
+ * console.log(safeHTML); // &lt;script&gt;alert('Malicioso')&lt;/script&gt;
+ */
+
+export function sanitizeHTML(html?: string): string {
+  // Si está en el servidor, usa expresiones regulares
+  if (typeof window === "undefined") {
+    if (!html) return "";
+    return html
+      .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "") // Eliminar scripts
+      .replace(/on\w+="[^"]*"/gi, "") // Eliminar manejadores de eventos
+      .replace(/javascript:/gi, "") // Eliminar javascript links
+      .replace(/<\/?[^>]+(>|$)/g, ""); // Opcional: remover todas las etiquetas HTML
+  }
+
+  // Si está en el cliente, usa método de DOM
+  if (!html) return "";
+
+  const div = document.createElement("div");
+
+  // Usar textContent para escapar HTML potencialmente malicioso
+  div.textContent = html;
+
+  // Eliminar scripts y eventos potencialmente peligrosos
+  const sanitizedHTML = div.innerHTML
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
+    .replace(/on\w+="[^"]*"/gi, "")
+    .replace(/javascript:/gi, "");
+
+  return sanitizedHTML;
+}
