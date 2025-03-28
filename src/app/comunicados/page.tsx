@@ -1,22 +1,15 @@
 "use client";
 
+import Banner from "@/components/Banner";
 import { usePublication } from "@/hooks/usePublications";
 
 export default function Page() {
     const { convenios } = usePublication();
     return (
         <>
-            <div className="container-fluid bg-primary py-5 mb-5 page-header">
-                <div className="container py-5">
-                    <div className="row justify-content-center">
-                        <div className="col-lg-10 text-center">
-                            <h1 className="display-3 text-white animated slideInDown">Comunicados</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Banner title="Comunicados"/>
 
-            <div className="container py-5">
+            <main className="container py-5">
                 <div className="container">
                     {/* Card 1 */}
                     <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -66,7 +59,7 @@ export default function Page() {
                         ))}
                     </div>
                 </div>
-            </div>
+            </main>
         </>
     )
 }
