@@ -16,6 +16,7 @@ export default function Footer() {
             <img
               src="img/logo1.png"
               style={{ width: "auto", height: "195px" }}
+              alt=""
             />
           </div>
 
