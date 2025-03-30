@@ -31,7 +31,7 @@ export default function RootLayout({
         {/* Íconos y hojas de estilo externas */}
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
         />
         <link
           rel="stylesheet"
