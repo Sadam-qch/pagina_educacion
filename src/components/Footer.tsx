@@ -1,16 +1,7 @@
 "use client";
 import React from "react";
-// Importamos funciones de la API
-import {
-  FaFacebook,
-  FaTwitter,
-  FaYoutube,
-  FaPhone,
-  FaMapLocation,
-  FaGoogle,
-  FaEnvelope,
-} from "react-icons/fa6";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
+import Link from "next/link";
 
 export default function Footer() {
   const { institutionData } = useInstitutionData();
@@ -30,29 +21,32 @@ export default function Footer() {
 
           <div className="col-lg-3 col-md-6">
             <h4 className="text-white mb-3">Enlaces rápidos</h4>
-            <a className="btn btn-link" href="acerca.html">
+            <Link className="btn btn-link" href="/acerca">
               Acerca De
-            </a>
-            <a className="btn btn-link" href="comunicados.html">
+            </Link>
+            <Link className="btn btn-link" href="/comunicados">
               Comunicados
-            </a>
-            <a className="btn btn-link" href="biblioteca.html">
+            </Link>
+            <Link className="btn btn-link" href="/biblioteca">
               Biblioteca
-            </a>
-            <a className="btn btn-link" href="contact.html">
+            </Link>
+            <Link className="btn btn-link" href="/tramites">
               Tramites
-            </a>
+            </Link>
+            <Link className="btn btn-link" href="/cursos-actualizacion">
+              Cursos de actualización
+            </Link>
           </div>
           <div className="col-lg-3 col-md-6">
             <h4 className="text-white mb-3">Contactos</h4>
             <p className="mb-2">
-              <i className="fa fa-map-marker-alt me-3"></i>Zona Villa
-              Esperanza, Av. Sucre, Edificio Dr. Freddy Medrano, Bloque A
+              <i className="fa fa-map-marker-alt me-3"></i>
+              {institutionData?.institucion_direccion}
             </p>
 
             <p className="mb-2">
               <i className="fa fa-envelope me-3"></i>
-              somoseducacionupea@gmail.com
+              {institutionData?.institucion_correo1}
             </p>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -62,7 +56,17 @@ export default function Footer() {
             <div className="d-flex pt-2">
               <a
                 className="btn btn-outline-light btn-social"
-                href="http://www.youtube.com/@somos.educacionUPEA"
+                href={institutionData?.institucion_youtube}
+                target="_blank"
+              >
+                <i className="fab fa-facebook"></i>
+              </a>{" "}
+              Facebook
+            </div>
+            <div className="d-flex pt-2">
+              <a
+                className="btn btn-outline-light btn-social"
+                href={institutionData?.institucion_youtube}
                 target="_blank"
               >
                 <i className="fab fa-youtube"></i>
@@ -75,7 +79,7 @@ export default function Footer() {
                 href="http://www.tiktok.com/@upea_somos_educacion"
                 target="_blank"
               >
-                <i className="fab fa-youtube"></i>
+                <i className="fab fa-tiktok"></i>
               </a>{" "}
               Tiktok
             </div>
@@ -86,8 +90,10 @@ export default function Footer() {
         <div className="copyright">
           <div className="row">
             <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-              &copy; <a className="border-bottom" href="#"></a> Todos los
-              derechos reservados. Diseñad por: Carmen.
+              &copy; Todos los
+              derechos reservados. Diseñado por: Carmen.
+              <br />
+              Desarrolado por: Maribel Torrez
             </div>
           </div>
         </div>
