@@ -71,89 +71,101 @@ export default function Page() {
                             <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
                             <h1 className="mb-5">Todo sobre la orientación vocacional </h1>
                         </div>
-                        <div className="flex flex-wrap justify-center gap-6">
 
+                        <div className="d-flex flex-wrap justify-content-center gap-4">
                             {/* Tarjeta 1 */}
-                            <div className="w-80 bg-light shadow-lg rounded-lg transform transition-all hover:scale-105">
-                                <div className="relative overflow-hidden">
+                            <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
+                                onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                                onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>
+                                <div className="position-relative overflow-hidden">
                                     <img
-                                        className="w-full h-48 object-cover"
+                                        className="card-img-top"
+                                        style={{ height: "12rem", objectFit: "cover" }}
                                         src="https://serviciopagina.upea.bo/InstitucionUpea/LinksExternos/b3e6a6da-5dc4-4d28-a641-1d836a6b605f.jpg"
                                         alt="Formulario de inscripción"
                                     />
-                                    <div className="absolute bottom-0 w-full flex justify-center mb-4">
+                                    <div className="position-absolute bottom-0 w-100 d-flex justify-content-center mb-4">
                                         <a href="https://forms.gle/2iwt3WKxRexhEkk7A"
-                                            className="btn btn-sm btn-primary px-4 rounded-full">
+                                            className="btn btn-sm btn-primary px-4 rounded-pill">
                                             Leer más
                                         </a>
                                     </div>
                                 </div>
-                                <div className="p-4">
-                                    <h5 className="text-center font-bold">Formulario de inscripción</h5>
+                                <div className="card-body p-4">
+                                    <h5 className="text-center fw-bold">Formulario de inscripción</h5>
                                 </div>
                             </div>
 
                             {/* Tarjeta 2 - Más adelante */}
-                            <div className="w-80 bg-light shadow-lg rounded-lg transform transition-all hover:scale-105">
-                                <div className="relative overflow-hidden">
+                            <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
+                                onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                                onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>
+                                <div className="position-relative overflow-hidden">
                                     <img
-                                        className="w-full h-48 object-cover"
+                                        className="card-img-top"
+                                        style={{ height: "12rem", objectFit: "cover" }}
                                         src="https://serviciopagina.upea.bo/InstitucionUpea/LinksExternos/1414adf3-9f29-4a78-8034-1aa0f8bdb525.png"
                                         alt="Curso online"
                                     />
-                                    <div className="absolute bottom-0 w-full flex justify-center mb-4">
+                                    <div className="position-absolute bottom-0 w-100 d-flex justify-content-center mb-4">
                                         <a href="https://gisberth3498801.milaulas.com"
-                                            className="btn btn-sm btn-primary px-4 rounded-full">
+                                            className="btn btn-sm btn-primary px-4 rounded-pill">
                                             Leer más
                                         </a>
                                     </div>
                                 </div>
-                                <div className="p-4 text-center">
-                                    <h5 className="font-bold">Curso online</h5>
+                                <div className="card-body p-4">
+                                    <h5 className="text-center fw-bold">Curso online</h5>
                                 </div>
                             </div>
 
                             {/* Tarjeta 3 */}
-                            <div className="w-80 bg-light shadow-lg rounded-lg transform transition-all hover:scale-105">
-                                <div className="relative overflow-hidden">
+                            <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
+                                onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                                onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>
+                                <div className="position-relative overflow-hidden">
                                     <img
-                                        className="w-full h-48 object-cover"
+                                        className="card-img-top"
+                                        style={{ height: "12rem", objectFit: "cover" }}
                                         src="https://educacion.upea.edu.bo/img/tallerpre.1290730b.png"
                                         alt="Taller presencial"
                                     />
-                                    <div className="absolute bottom-0 w-full flex justify-center mb-4">
-                                        <a href="#" className="btn btn-sm btn-primary px-4 rounded-full">
+                                    <div className="position-absolute bottom-0 w-100 d-flex justify-content-center mb-4">
+                                        <a href="#" className="btn btn-sm btn-primary px-4 rounded-pill">
                                             Leer más
                                         </a>
                                     </div>
                                 </div>
-                                <div className="p-4 text-center">
-                                    <h5 className="font-bold">Taller presencial</h5>
+                                <div className="card-body p-4">
+                                    <h5 className="text-center fw-bold">Taller presencial</h5>
                                 </div>
                             </div>
                         </div>
 
-                        <div className=" pt-12 container text-center wow fadeInUp" data-wow-delay="0.1s">
+                        <div className="container pt-5 text-center animate__animated animate__fadeInUp" data-wow-delay="0.1s">
                             <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
                             <h1 className="mb-5">Todo sobre la orientación vocacional</h1>
 
                             {/* Contenedor de videos */}
-                            <div className="flex flex-wrap justify-center gap-6">
+                            <div className="d-flex flex-wrap justify-content-center gap-4">
                                 {actividades &&
                                     actividades.map((data) => (
-                                        <div key={data.video_id} className="w-full sm:w-80 bg-light shadow-lg rounded-lg transform transition-all hover:scale-105">
-                                            <div className="relative overflow-hidden">
-                                                <div className="w-full h-48">
+                                        <div key={data.video_id} className="card mb-4 bg-light shadow-lg rounded"
+                                            style={{ width: "20rem", transition: "transform 0.3s" }}
+                                            onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
+                                            onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}
+                                        >
+                                            <div className="position-relative overflow-hidden">
+                                                <div className="ratio ratio-16x9">
                                                     <iframe
-                                                        className="w-full h-full"
                                                         src={data.video_enlace}
                                                         title={data.video_titulo}
                                                         allowFullScreen
                                                     ></iframe>
                                                 </div>
                                             </div>
-                                            <div className="p-4">
-                                                <h5 className="text-center font-bold">{data.video_titulo}</h5>
+                                            <div className="card-body p-4">
+                                                <h5 className="text-center fw-bold">{data.video_titulo}</h5>
                                             </div>
                                         </div>
                                     ))}
