@@ -61,6 +61,11 @@ export default function Page() {
                   </div>
                 </div>
               ))}
+
+            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+              <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
+              <h1 className="mb-5">Todo sobre la orientación vocacional </h1>
+            </div>
             <div className="d-flex flex-wrap justify-content-center gap-4">
               {/* Tarjeta 1 */}
               <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
@@ -85,7 +90,7 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Tarjeta 2 - Más adelante */}
+              {/* Tarjeta 2*/}
               <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
                 onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
                 onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>
@@ -108,7 +113,7 @@ export default function Page() {
                 </div>
               </div>
 
-              {/* Tarjeta 3 */}
+              {/* Tarjeta  */}
               <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
                 onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
                 onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>

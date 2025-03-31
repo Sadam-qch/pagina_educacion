@@ -96,7 +96,7 @@ export default function Page() {
                                 </div>
                             </div>
 
-                            {/* Tarjeta 2 - Más adelante */}
+                            {/* Tarjeta 2  */}
                             <div className="card mb-4 bg-light shadow-lg rounded" style={{ width: "20rem", transition: "transform 0.3s" }}
                                 onMouseOver={(e) => e.currentTarget.style.transform = "scale(1.05)"}
                                 onMouseOut={(e) => e.currentTarget.style.transform = "scale(1)"}>
