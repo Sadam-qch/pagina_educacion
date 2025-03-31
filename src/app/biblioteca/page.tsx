@@ -1,50 +1,59 @@
 "use client";
 import React from "react";
 import { usePublication } from "@/hooks/usePublications";
+import Banner from "@/components/Banner";
 
 export default function Page() {
-  const { biblioteca, loading } = usePublication();
-
-  if (loading) {
-    return <p>cargando....</p>;
-  }
+  const { biblioteca } = usePublication();
   return (
-    <div className="flex flex-col pt-20 ">
-      <div
-        className="w-full mx-auto text-center h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: "url('/img/fondo1.jpg')" }}
-         >
-        <h1 className="text-5xl font-extrabold text-white animate-pulse text-secondar bg-opacity-75 p-4 rounded-lg">
-          VISITA NUESTRA BIBLIOTECA
-        </h1>
-      </div>
-      <div className="container py-20 mx-auto text-center">
-          <h1 className="text-5xl font-extrabold text-blue-700">
-            BIBLIOTECA
-          </h1>
-        </div>
-    <section className="p-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
-      
-        {biblioteca &&
-          biblioteca.map((data) => (
-            <div
-              key={data.publicaciones_id}
-              className="relative p-6 text-center bg-cyan-950 rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              {/* Contenedor con altura fija para evitar un slider demasiado grande */}
-              <div className="w-full overflow-hidden rounded-md h-96">
-                <img
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
-                  alt={data.publicaciones_titulo}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold text-slate-50">
-                {data.publicaciones_titulo}
-              </h3>
+    <>
+      <Banner title="Biblioteca" />
+      <main>
+        <div className="container-xxl py-5">
+          <div className="container">
+            <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+              <h6 className="section-title bg-white text-center text-primary px-3">Biblioteca</h6>
+              <h1 className="mb-5">Visita nuestra Biblioteca</h1>
             </div>
-          ))}
-    </section>
-    </div>
-  );
+            <div className="row justify-content-center">
+              {biblioteca &&
+                biblioteca.map((data) => (
+                  <div key={data.publicaciones_id} className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div className="course-item bg-light">
+                      <div className="position-relative overflow-hidden d-flex justify-content-center">
+                        <a href={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}>
+                          <img
+                            className="img-fluid"
+                            src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
+                            alt=""
+                          />
+                        </a>
+                      </div>
+                      <div className="text-center p-4 pb-0">
+                        <h5 className="mb-4">{data.publicaciones_titulo}</h5>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
+        </div>
+        <div className="container-xxl py-5 d-flex justify-content-center">
+          <div className="container text-center">
+            <h3>Servicio de Biblioteca</h3>
+            <p>Para acceder haga click en el siguiente enlace</p>
+            <a
+              href="#"
+              target="_blank"
+              className="btn btn-sm btn-primary px-3 border-end"
+              style={{ borderRadius: "30px 0 0 30px" }}
+            >
+              Servicio de Biblioteca
+            </a>
+          </div>
+        </div>
+      </main>
+
+    </>
+  )
 }
