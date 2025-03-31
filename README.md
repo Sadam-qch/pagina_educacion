@@ -1,4 +1,4 @@
-# Sitio web de la Carrera de: INGENIERIA DE SISTEMAS
+# Sitio web de la Carrera de: CIENCIAS DE LA EDUCACION
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -31,6 +31,9 @@ Modifica los archivos en `src/app/globals.css` para personalizar los temas claro
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #f56224; 
+  --secondary: #0A02B0;
+  --tertiary: #000001;
 }
 
 body {

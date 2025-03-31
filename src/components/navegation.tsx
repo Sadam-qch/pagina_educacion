@@ -35,12 +35,13 @@ export default function Header() {
     { name: "SOBRE LA CARRERA", path: "/about" },
     { name: "TRÁMITES", path: "/tramites" },
     { name: "BIBLIOTECA", path: "/biblioteca" },
+
   ];
 
   return (
     <>
       {/* Menú fijo sobre la imagen */}
-      <nav className="fixed left-0 w-full h-[5rem] bg-[#f56224] bg-opacity-100 z-20">
+      <nav className="fixed left-0 w-full h-[5rem] bg-primary bg-opacity-100 z-20">
         <div className="flex items-center justify-between max-w-6xl px-6 mx-auto">
           {/* Logo */}
           <div className="flex items-center">
@@ -52,7 +53,7 @@ export default function Header() {
           </div>
 
           {/* Menú de navegación en pantallas grandes */}
-          <ul className="hidden space-x-6 text-lg text-white md:flex">
+          <ul className="hidden space-x-0 text-sm text-white md:flex">
             {menuItems.map((item) => (
               <li key={item.path}>
                 <a
@@ -123,7 +124,7 @@ export default function Header() {
 
         {/* Menú desplegable en pantallas pequeñas */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-[5rem] left-0 w-full bg-[#f56224] text-white  flex flex-col items-center space-y-4 py-4 shadow-lg z-10">
+          <div className="md:hidden absolute top-[5rem] left-0 w-full bg-primary text-white  flex flex-col items-center space-y-4 py-4 shadow-lg z-10">
             {menuItems.map((item) => (
               <a
                 key={item.path}
