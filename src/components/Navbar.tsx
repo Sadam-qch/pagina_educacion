@@ -5,7 +5,7 @@ export const Navbar = () => {
                 href="index.html"
                 className="navbar-brand d-flex align-items-center px-4 px-lg-5"
             >
-                <img src="img/logo2.png" style={{ width: "auto", height: "75px" }} />
+                <img src="./img/logo2.png" alt="" style={{ width: "auto", height: "75px" }} />
             </a>
             <button
                 type="button"
