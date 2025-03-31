@@ -23,7 +23,7 @@ export default function Header({ title }: HeaderProps) {
   };
 
   return (
-    <section className="w-full">
+    <section className="w-full pt-20">
       {institutionData && (
         <Slider {...settings}>
           {institutionData.portada.map((data, _i) => (
