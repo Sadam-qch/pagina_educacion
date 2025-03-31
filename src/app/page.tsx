@@ -6,7 +6,10 @@ import { usePublication } from "@/hooks/usePublications";
 import { useVideos } from "@/hooks/useVideos";
 import React from "react";
 
-const imgURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Portada`;
+// const imgURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Portada`;
+const imgURL = `/img`;
+// const imgAutoridadURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Autoridad`;
+const imgAutoridadURL = `/img`;
 
 export default function Page() {
   // const { institutionData } = useInstitutionData();
@@ -315,8 +318,9 @@ export default function Page() {
                       <div className="team-item bg-light">
                         <div className="overflow-hidden">
                           <img
-                            className="img-fluid"
-                            src={data.foto_autoridad}
+                            className="img-fluid h-full"
+                            style={{ height: '100%' }}
+                            src={`${imgAutoridadURL}/${data.foto_autoridad}`}
                             alt=""
                           />
                         </div>

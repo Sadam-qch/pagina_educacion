@@ -34,8 +34,8 @@ export const institutionData: Institution = {
   autoridad: [
     {
       id_autoridad: 114,
-      foto_autoridad: "img/Piter.png",
-      nombre_autoridad: "Dr. Piter Escobar Callejas. Phd.",
+      foto_autoridad: "docente.webp",
+      nombre_autoridad: "DR. PITER  ESCOBAR CALLEJAS",
       cargo_autoridad: "Asociacion de Docentes",
       facebook_autoridad: "Deivid",
       celular_autoridad: "77777777",
@@ -43,8 +43,8 @@ export const institutionData: Institution = {
     },
     {
       id_autoridad: 115,
-      foto_autoridad: "img/director-1.png",
-      nombre_autoridad: "Dr. Deivid Pacosillo Mamani Phd.",
+      foto_autoridad: "director.webp",
+      nombre_autoridad: "DR. DEIVID PACOSILLO MAMANI",
       cargo_autoridad: "Director",
       facebook_autoridad: "ninguno",
       celular_autoridad: "123456",
@@ -52,8 +52,8 @@ export const institutionData: Institution = {
     },
     {
       id_autoridad: 165,
-      foto_autoridad: "img/ejecutivo-1.png",
-      nombre_autoridad: "Univ. Luis Miguel Cadena Rojas",
+      foto_autoridad: "ejecutivo.webp",
+      nombre_autoridad: "UNIV. GROVER MAMANI LOPEZ",
       cargo_autoridad: "1er Ejecutivo a.i.",
       facebook_autoridad: "",
       celular_autoridad: "",
@@ -63,19 +63,19 @@ export const institutionData: Institution = {
   portada: [
     {
       portada_id: 193,
-      portada_imagen: "5d7ae4c0-59ef-42c9-9fe2-6f39ed7dd421.jpg",
+      portada_imagen: "carousel-01.jpg",
       portada_titulo: "Carrera Ciencias de la Educación",
       portada_subtitulo: "RUMBO A LA EXCELENCIA ACADEMICA",
     },
     {
       portada_id: 194,
-      portada_imagen: "59a0eb0b-bf99-4110-98a1-6f5e18bdb4c1.jpg",
+      portada_imagen: "carousel-02.jpg",
       portada_titulo: "Carrera Ciencias de la Educación",
       portada_subtitulo: "RUMBO A LA EXCELENCIA ACADEMICA",
     },
     {
       portada_id: 195,
-      portada_imagen: "86650e45-9f15-4e19-8e7d-5e033dbb4219.jpg",
+      portada_imagen: "carousel-03.jpg",
       portada_titulo: "Carrera Ciencias de la Educación",
       portada_subtitulo: "RUMBO A LA EXCELENCIA ACADEMICA",
     },
