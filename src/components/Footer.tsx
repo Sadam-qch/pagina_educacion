@@ -94,7 +94,7 @@ export default function Footer() {
               &copy; Todos los
               derechos reservados. Diseñado por: Carmen.
               <br />
-              Desarrolado por: Maribel Torrez
+              Desarrollado por: Maribel Torrez
             </div>
           </div>
         </div>
