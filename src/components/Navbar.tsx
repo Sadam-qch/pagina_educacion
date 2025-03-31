@@ -44,7 +44,7 @@ export const Navbar = () => {
         className="navbar-brand d-flex align-items-center px-4 px-lg-5"
       >
         <Image
-          src="/img/logo2.png"
+          src="/img/logo1.png"
           alt="Logo"
           width={180}
           height={75}

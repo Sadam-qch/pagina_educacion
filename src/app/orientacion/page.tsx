@@ -14,8 +14,8 @@ export default function Page() {
                 <div className="container-xxl py-5">
                     <div className="container">
                         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <h6 className="section-title bg-white text-center text-primary px-3">Orientacion vocacional</h6>
-                            <h1 className="mb-5">Programa de Orientacion Pedagogica para la vocacion productiva tecnologica</h1>
+                            <h6 className="section-title bg-white text-center text-primary px-3">Orientación Vocacional</h6>
+                            <h1 className="mb-5">Programa de Orientación Pedagógica para la Vocación Productiva Tecnológica</h1>
                         </div>
                         {orientacionVoc &&
                             orientacionVoc.map((data, index) => (

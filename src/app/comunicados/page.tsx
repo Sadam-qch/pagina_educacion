@@ -14,7 +14,7 @@ export default function Page() {
                     {/* Card 1 */}
                     <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                         <h6 className="section-title bg-white text-center text-primary px-3">Comunicados</h6>
-                        <h1 className="mb-5">Convenios institucionales</h1>
+                        <h1 className="mb-5">Convenios Institucionales</h1>
                     </div>
                     <div className="row g-4 justify-content-center">
                         <div className="col-lg-4 col-md-6 wow fadeInUp bg-light" data-wow-delay="0.1s">

@@ -14,8 +14,8 @@ export default function Page() {
         <div className="container-xxl py-5">
           <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-              <h6 className="section-title bg-white text-center text-primary px-3">Apoyo educativo</h6>
-              <h1 className="mb-5">Programa de Apoyo educativo</h1>
+              <h6 className="section-title bg-white text-center text-primary px-3">Apoyo Educativo</h6>
+              <h1 className="mb-5">Programa de Apoyo Educativo</h1>
             </div>
             {objetivoApoyoEducativo &&
               objetivoApoyoEducativo.map((data) => (
@@ -64,7 +64,7 @@ export default function Page() {
 
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
               <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
-              <h1 className="mb-5">Todo sobre la orientación vocacional </h1>
+              <h1 className="mb-5">Todo sobre la Orientación Vocacional </h1>
             </div>
             <div className="d-flex flex-wrap justify-content-center gap-4">
               {/* Tarjeta 1 */}
@@ -86,7 +86,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h5 className="text-center fw-bold">Formulario de inscripción</h5>
+                  <h5 className="text-center fw-bold">Formulario de Inscripción</h5>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h5 className="text-center fw-bold">Curso online</h5>
+                  <h5 className="text-center fw-bold">Curso Online</h5>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@ export default function Page() {
                   </div>
                 </div>
                 <div className="card-body p-4">
-                  <h5 className="text-center fw-bold">Taller presencial</h5>
+                  <h5 className="text-center fw-bold">Taller Presencial</h5>
                 </div>
               </div>
             </div>
