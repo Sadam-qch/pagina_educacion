@@ -23,9 +23,13 @@ const menuItems = [
       {
         id: "orientacion",
         label: "Orientacion vocacional",
-        path: "/orientacion-vocacional",
+        path: "/orientacion",
       },
-      { id: "apoyo", label: "Apoyo Educativo", path: "/apoyo-educativo" },
+      {
+        id: "apoyo",
+        label: "Apoyo Educativo",
+        path: "/apoyo"
+      },
     ],
   },
 ];
@@ -63,17 +67,17 @@ export const Navbar = () => {
               <div className="nav-item dropdown" key={item.id}>
                 <a
                   href={item.path}
-                  className="nav-link dropdown-toggle"
+                  className={`nav-link dropdown-toggle ${activeItem === "orientacion" || activeItem === 'apoyo' ? "active" : ""}`}
                   data-bs-toggle="dropdown"
                 >
                   {item.label}
                 </a>
-                <div className="dropdown-menu fade-down m-0 text-center text-lg-start">
+                <div className={`dropdown-menu fade-down m-0 text-center text-lg-start`}>
                   {item.subMenu?.map((child) => (
                     <Link
                       key={child.id}
                       href={child.path}
-                      className="dropdown-item"
+                      className={`dropdown-item ${activeItem === child.id ? 'active' : ''}`}
                       onClick={() => setActiveItem(child.id)}
                     >
                       {child.label}
