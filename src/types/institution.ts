@@ -15,6 +15,22 @@ export interface Cover {
   portada_subtitulo: string;
 }
 
+export interface Location {
+  id_ubicacion: number;
+  ubicacion_imagen: string;
+  ubicacion_titulo: string;
+  ubicacion_descripcion: string;
+  ubicacion_latitud: string;
+  ubicacion_longitud: string;
+  ubicacion_estado: string;
+}
+
+export interface Color {
+  id_color: number;
+  color_primario: string;
+  color_secundario: string;
+  color_terciario: string;
+}
 export interface Institution {
   institucion_id: number;
   id_carrera: number;
@@ -49,4 +65,6 @@ export interface Institution {
   // Related entities
   autoridad: Authority[];
   portada: Cover[];
+  ubicacion: Location[];
+  colorinstitucion: Color[];
 }

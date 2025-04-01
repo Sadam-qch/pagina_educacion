@@ -5,7 +5,8 @@
 - [**Next.js**](https://nextjs.org/) (v.15): Framework basado en React que permite construir aplicaciones web modernas, eficientes y con capacidades de renderizado en el servidor.
 - [**React**](https://reactjs.org/) (v.19): Biblioteca de JavaScript para construir interfaces de usuario interactivas y dinámicas.
 - [**Node.js**](https://nodejs.org/) (v.22): Entorno de ejecución para JavaScript, utilizado para desarrollar el backend de la aplicación.
-- [**Taiwind CSS**](https://tailwindcss.com/): (v.3 )framework de CSS utilitario que permite diseñar interfaces de usuario rápidamente usando clases predefinidas en lugar de escribir CSS manualmente.
+- [**eLEARNING HTML Template**](https://themewagon.github.io/elearning/): Template con Bootstrap 5 para webs educativos.
+- [**Bootstrap CSS**](https://tailwindcss.com/): (v.5 )framework de CSS utilitario que permite diseñar interfaces de usuario rápidamente usando clases predefinidas en lugar de escribir CSS manualmente.
 
 ## ⚙️ INSTALACIÓN  
 Para la instalación, lee el archivo [/INSTALL.md](./INSTALL.md).
@@ -21,9 +22,10 @@ src/
 ├── lib/                    # Utilidades
 ├── types/                  # Tipos y interfaces globales
 ├── utils/                  # Utilidades y helpers
+├── mocks/                  # Replicas de respuestas de la API
 ```
 
-## 🎨 Personalización del diseño
+<!-- ## 🎨 Personalización del diseño
 
 Modifica los archivos en `src/app/globals.css` para personalizar los temas claro y oscuro:
 
@@ -41,7 +43,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-```
+``` -->
 
 ## 🤝 Contribución
 
