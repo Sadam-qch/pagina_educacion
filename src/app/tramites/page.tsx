@@ -15,7 +15,7 @@ export default function Page() {
         <div className="container">
           <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 className="section-title bg-white text-center text-primary px-3">Tramites</h6>
-            <h1 className="mb-5">Tramites en la Carrera de Educacion</h1>
+            <h1 className="mb-5">Tramites en la Carrera de Educación</h1>
           </div>
 
           {/* <!-- cartas para Biblioteca Start --> */}
