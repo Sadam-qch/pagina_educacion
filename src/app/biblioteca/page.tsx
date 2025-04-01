@@ -43,7 +43,7 @@ export default function Page() {
             <h3>Servicio de Biblioteca</h3>
             <p>Para acceder haga click en el siguiente enlace</p>
             <a
-              href="#"
+              href="https://repositorio.upea.bo/jspui/handle/123456789/556"
               target="_blank"
               className="btn btn-sm btn-primary px-3 border-end"
               style={{ borderRadius: "30px 0 0 30px" }}
