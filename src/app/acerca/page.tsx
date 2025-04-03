@@ -3,6 +3,7 @@ import Banner from "@/components/Banner";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
 import { usePublication } from "@/hooks/usePublications";
 import { stripHtml } from "@/util/formatText";
+import Image from "next/image";
 
 export default function Page() {
     const { preEspecialidad } = usePublication();
@@ -16,7 +17,7 @@ export default function Page() {
                         <div className="row g-5">
                             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                                 <div className="position-relative h-100">
-                                    <img className="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="" style={{ objectFit: "cover" }} />
+                                    <Image className="img-fluid position-absolute w-100 h-100" src="img/about.jpg" alt="" style={{ objectFit: "cover" }} />
                                 </div>
                             </div>
                             <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">

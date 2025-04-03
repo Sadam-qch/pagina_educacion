@@ -1,6 +1,7 @@
 "use client";
 import Banner from "@/components/Banner";
 import { useGazette } from "@/hooks/useGazette";
+import Image from "next/image";
 
 export default function Page() {
   const { modelo_biblio } = useGazette();
@@ -24,7 +25,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <img className="img-fluid position-absolute w-100 h-100" src="img/BIBLIOEST.JPG" alt=""
+                    <Image className="img-fluid position-absolute w-100 h-100" src="img/BIBLIOEST.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
@@ -50,7 +51,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <img className="img-fluid position-absolute w-100 h-100" src="img/kardex.JPG" alt=""
+                    <Image className="img-fluid position-absolute w-100 h-100" src="img/kardex.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
@@ -78,7 +79,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <img className="img-fluid position-absolute w-100 h-100" src="img/tus.JPG" alt=""
+                    <Image className="img-fluid position-absolute w-100 h-100" src="img/tus.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
