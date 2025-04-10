@@ -95,9 +95,9 @@ export default function Footer() {
           <div className="row">
             <div className="col-md-6 text-center text-md-start mb-2 mb-md-0">
               &copy; Todos los
-              derechos reservados.
+              derechos reservados - UTIC {new Date().getFullYear()}
               <br />
-              UTIC - 2025
+              Desarrollado por Maribel Torrez
             </div>
           </div>
         </div>
