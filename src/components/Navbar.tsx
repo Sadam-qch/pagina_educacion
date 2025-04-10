@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   { id: "inicio", label: "Inicio", path: "/" },
@@ -35,7 +35,8 @@ const menuItems = [
 ];
 
 export const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("inicio");
+
+  const pathname = usePathname();
 
   return (
     <nav className="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -67,7 +68,7 @@ export const Navbar = () => {
               <div className="nav-item dropdown" key={item.id}>
                 <a
                   href={item.path}
-                  className={`nav-link dropdown-toggle ${activeItem === "orientacion" || activeItem === 'apoyo' ? "active" : ""}`}
+                  className={`nav-link dropdown-toggle ${(pathname === item.path || pathname === '/orientacion' || pathname === '/apoyo') ? "active" : ""}`}
                   data-bs-toggle="dropdown"
                 >
                   {item.label}
@@ -77,8 +78,7 @@ export const Navbar = () => {
                     <Link
                       key={child.id}
                       href={child.path}
-                      className={`dropdown-item ${activeItem === child.id ? 'active' : ''}`}
-                      onClick={() => setActiveItem(child.id)}
+                      className={`dropdown-item ${pathname === child.path ? 'active' : ''}`}
                     >
                       {child.label}
                     </Link>
@@ -89,8 +89,7 @@ export const Navbar = () => {
               <Link
                 key={item.id}
                 href={item.path}
-                className={`nav-item nav-link ${activeItem === item.id ? "active" : ""}`}
-                onClick={() => setActiveItem(item.id)}
+                className={`nav-item nav-link ${pathname === item.path ? "active" : ""}`}
               >
                 {item.label}
               </Link>
