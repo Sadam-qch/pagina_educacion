@@ -1,9 +1,10 @@
 "use client";
 import Banner from "@/components/Banner";
 import { cursosActualizacion } from "@/mocks/videosAll/cursosActualizacion";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
 
 export default function Page() {
-  // const { cursosActualizacion } = useVideos();
+  const { sanitize } = useDOMPurify();
 
   return (
     <>
@@ -28,7 +29,7 @@ export default function Page() {
                   >
                     <div className="ratio ratio-16x9">
                       <iframe
-                        src={data.video_enlace}
+                        src={sanitizeURL(data.video_enlace)}
                         title="YouTube video"
                       ></iframe>
                     </div>
@@ -38,13 +39,13 @@ export default function Page() {
                     data-wow-delay="0.3s"
                   >
                     <h6 className="section-title bg-white text-start text-primary pe-3">
-                      {data.video_tipo}
+                      {sanitizeText(data.video_tipo)}
                     </h6>
-                    <h1 className="mb-4">{data.video_titulo}</h1>
+                    <h1 className="mb-4">{sanitizeText(data.video_titulo)}</h1>
                     <div
-                      dangerouslySetInnerHTML={{
-                        __html: data.video_breve_descripcion,
-                      }}
+                      dangerouslySetInnerHTML={
+                        sanitizeHTML(data.video_breve_descripcion)
+                      }
                     />
                   </div>
                 </div>

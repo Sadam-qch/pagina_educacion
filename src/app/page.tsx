@@ -1,20 +1,22 @@
 "use client";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { institutionData } from "@/mocks/institucion";
 import { usePublication } from "@/hooks/usePublications";
 import { useVideos } from "@/hooks/useVideos";
-import React from "react";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
+// Importaciones para el carrusel
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-// const imgURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Portada`;
+
+// Rutas de imágenes
 const imgURL = `/img`;
-// const imgAutoridadURL = `${process.env.NEXT_PUBLIC_API_URL}/InstitucionUpea/Autoridad`;
 const imgAutoridadURL = `/img`;
 
+
 export default function Page() {
-  // const { institutionData } = useInstitutionData();
   const { sedes } = usePublication();
   const { actividades, noticia } = useVideos();
+  const { sanitize } = useDOMPurify();
 
   return (
     <>
@@ -35,7 +37,7 @@ export default function Page() {
               >
                 <img
                   className="img-fluid w-100"
-                  src={`${imgURL}/${data.portada_imagen}`}
+                  src={sanitizeURL(`${imgURL}/${data.portada_imagen}`)}
                   alt=""
                 />
                 <div
@@ -46,13 +48,13 @@ export default function Page() {
                     <div className="row justify-content-start">
                       <div className="col-sm-10 col-lg-6">
                         <h5 className="text-white text-uppercase mb-3 animated slideInDown">
-                          {data.portada_subtitulo}
+                          {sanitizeText(data.portada_subtitulo)}
                         </h5>
                         <h1
                           className="display-3 text-white animated slideInDown"
                           style={{ fontSize: "42px" }}
                         >
-                          {data.portada_titulo}
+                          {sanitizeText(data.portada_titulo)}
                         </h1>
                         <p className="fs-5 text-white mb-4 pb-2">
                           {" "}
@@ -120,9 +122,7 @@ export default function Page() {
                   Bienvenido a la Carrera de Ciencias de la Educación
                 </h1>
                 <div
-                  dangerouslySetInnerHTML={{
-                    __html: institutionData.institucion_objetivos,
-                  }}
+                  dangerouslySetInnerHTML={sanitizeHTML(institutionData.institucion_objetivos)}
                 />
 
                 <div className="row gy-2 gx-4 mb-4">
@@ -174,22 +174,26 @@ export default function Page() {
           <div className="container">
             <div className="row g-5">
               <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div className="ratio ratio-16x9">
-                  <iframe
-                    src={noticia?.[0].video_enlace}
-                    title="YouTube video"
-                  />
-                </div>
+                {/* Solo renderizar el iframe si hay una URL válida */}
+                {(() => {
+                  const videoURL = sanitizeURL(noticia?.[0]?.video_enlace);
+                  return videoURL ? (
+                    <div className="ratio ratio-16x9">
+                      <iframe
+                        src={videoURL}
+                        title="YouTube video"
+                      />
+                    </div>
+                  ) : null;
+                })()}
               </div>
               <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Noticias
                 </h6>
-                <h1 className="mb-4">{noticia?.[0]?.video_titulo}</h1>
+                <h1 className="mb-4">{sanitizeText(noticia?.[0]?.video_titulo)}</h1>
                 <div
-                  dangerouslySetInnerHTML={{
-                    __html: noticia?.[0]?.video_breve_descripcion,
-                  }}
+                  dangerouslySetInnerHTML={sanitizeHTML(noticia?.[0]?.video_breve_descripcion)}
                 />
               </div>
             </div>
@@ -205,11 +209,9 @@ export default function Page() {
                 <h6 className="section-title bg-white text-start text-primary pe-3">
                   Actividades
                 </h6>
-                <h1 className="mb-4">{actividades?.[0].video_titulo || ""}</h1>
+                <h1 className="mb-4">{sanitizeText(actividades?.[0]?.video_titulo)}</h1>
                 <div
-                  dangerouslySetInnerHTML={{
-                    __html: actividades?.[0]?.video_breve_descripcion,
-                  }}
+                  dangerouslySetInnerHTML={sanitizeHTML(actividades?.[0]?.video_breve_descripcion)}
                 />
               </div>
               <div className="col-lg-6 py-auto wow fadeInUp" data-wow-delay="0.3s">
@@ -231,20 +233,25 @@ export default function Page() {
                       data-bs-interval="false"
                     >
                       <div className="carousel-inner">
-                        {actividades?.map((data, _i) => (
-                          <div
-                            key={`caroucel-actividad-${_i}`}
-                            className={`carousel-item ${_i === 0 ? "active" : ""}`}
-                          >
-                            <div className="ratio ratio-16x9">
-                              <iframe
-                                src={data.video_enlace}
-                                title="YouTube video"
-                                allowFullScreen
-                              />
+                        {actividades?.map((data, _i) => {
+                          const videoURL = sanitizeURL(data.video_enlace);
+                          return (
+                            <div
+                              key={`caroucel-actividad-${_i}`}
+                              className={`carousel-item ${_i === 0 ? "active" : ""}`}
+                            >
+                              {videoURL && (
+                                <div className="ratio ratio-16x9">
+                                  <iframe
+                                    src={videoURL}
+                                    title="YouTube video"
+                                    allowFullScreen
+                                  />
+                                </div>
+                              )}
                             </div>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -276,27 +283,35 @@ export default function Page() {
             </div>
 
             <div className="row row-cols-3 g-4 justify-content-center">
-              {sedes?.map((data, _i) => (
-                <div
-                  key={`sede-${_i}`}
-                  className="col-lg-4 col-md-6 wow fadeInUp"
-                  data-wow-delay="0.1s"
-                >
-                  <div className="course-item bg-light">
-                    <div className="position-relative overflow-hidden">
-                      <img
-                        className="img-fluid"
-                        src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
-                        alt=""
-                      />
-                      <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"></div>
-                    </div>
-                    <div className="text-center p-4 pb-0">
-                      <h5 className="mb-4">{data.publicaciones_titulo}</h5>
+              {sedes?.map((data, _i) => {
+                const imgSrc = data.publicaciones_imagen ? 
+                  sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`) : 
+                  null;
+
+                return (
+                  <div
+                    key={`sede-${_i}`}
+                    className="col-lg-4 col-md-6 wow fadeInUp"
+                    data-wow-delay="0.1s"
+                  >
+                    <div className="course-item bg-light">
+                      <div className="position-relative overflow-hidden">
+                        {imgSrc && (
+                          <img
+                            className="img-fluid"
+                            src={imgSrc}
+                            alt=""
+                          />
+                        )}
+                        <div className="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4"></div>
+                      </div>
+                      <div className="text-center p-4 pb-0">
+                        <h5 className="mb-4">{sanitizeText(data.publicaciones_titulo)}</h5>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* <!-- autoridades --> */}
@@ -309,29 +324,37 @@ export default function Page() {
                   <h1 className="mb-5">Nuestras Autoridades</h1>
                 </div>
                 <div className="row g-4">
-                  {institutionData?.autoridad.map((data, _i) => (
-                    <div
-                      key={`autoridad-${_i}`}
-                      className="col-lg-4 col-md-6 wow fadeInUp"
-                      data-wow-delay="0.1s"
-                    >
-                      <div className="team-item bg-light">
-                        <div className="overflow-hidden">
-                          <img
-                            className="img-fluid h-full"
-                            style={{ height: '100%' }}
-                            src={`${imgAutoridadURL}/${data.foto_autoridad}`}
-                            alt=""
-                          />
-                        </div>
+                  {institutionData?.autoridad.map((data, _i) => {
+                    const imgSrc = data.foto_autoridad ? 
+                      sanitizeURL(`${imgAutoridadURL}/${data.foto_autoridad}`) : 
+                      null;
 
-                        <div className="text-center p-4">
-                          <h5 className="mb-0">{data.nombre_autoridad}</h5>
-                          <small>{data.cargo_autoridad}</small>
+                    return (
+                      <div
+                        key={`autoridad-${_i}`}
+                        className="col-lg-4 col-md-6 wow fadeInUp"
+                        data-wow-delay="0.1s"
+                      >
+                        <div className="team-item bg-light">
+                          <div className="overflow-hidden">
+                            {imgSrc && (
+                              <img
+                                className="img-fluid"
+                                style={{ height: '100%' }}
+                                src={imgSrc}
+                                alt=""
+                              />
+                            )}
+                          </div>
+
+                          <div className="text-center p-4">
+                            <h5 className="mb-0">{sanitizeText(data.nombre_autoridad)}</h5>
+                            <small>{sanitizeText(data.cargo_autoridad)}</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>

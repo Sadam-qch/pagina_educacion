@@ -2,9 +2,11 @@
 
 import Banner from "@/components/Banner";
 import { usePublication } from "@/hooks/usePublications";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
 
 export default function Page() {
     const { convenios } = usePublication();
+    const { sanitize } = useDOMPurify();
     return (
         <>
             <Banner title="Comunicados"/>
@@ -35,24 +37,23 @@ export default function Page() {
                         </div>
                     </div>
                     {/* Cards para comunicados Convenios por modalidad de graduación */}
-                    {/* Cards*/}
-                    <h1 className="mb-5 text-center">Convenios para Modalidades de Graduación</h1>
+                    <h1 className="mb-5 text-center p-4">Convenios para Modalidades de Graduación</h1>
                     <div className="row g-2 justify-content-center">
                     {convenios &&
                         convenios.map((data) => (
                         <div key={data.publicaciones_id} className="col-lg-4 col-md-6 wow fadeInUp bg-light" data-wow-delay="0.1s">
                             <div className="course-item ">
                             <div className="position-relative overflow-hidden">
-                                <a href={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}>
+                                <a href={sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`)}>
                                 <img
                                     className="img-fluid"
-                                    src={`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`}
+                                    src={sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Publicaciones/${data.publicaciones_imagen}`)}
                                     alt=""
                                 />
                                 </a>
                             </div>
                             <div className="text-center p-4 pb-0">
-                                <h5 className="mb-4">{data.publicaciones_titulo}</h5>
+                                <h5 className="mb-4">{sanitizeText(data.publicaciones_titulo)}</h5>
                             </div>
                             </div>
                         </div>

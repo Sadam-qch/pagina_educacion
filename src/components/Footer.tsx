@@ -2,9 +2,12 @@
 import React from "react";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
 import Link from "next/link";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
 
 export default function Footer() {
   const { institutionData } = useInstitutionData();
+  const { sanitize } = useDOMPurify();
+
   return (
     <footer
       className="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
@@ -42,12 +45,12 @@ export default function Footer() {
             <h4 className="text-white mb-3">Contactos</h4>
             <p className="mb-2">
               <i className="fa fa-map-marker-alt me-3"></i>
-              {institutionData?.institucion_direccion}
+              {sanitizeText(institutionData?.institucion_direccion)}
             </p>
 
             <p className="mb-2">
               <i className="fa fa-envelope me-3"></i>
-              {institutionData?.institucion_correo1}
+              {sanitizeText(institutionData?.institucion_correo1)}
             </p>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -57,7 +60,7 @@ export default function Footer() {
             <div className="d-flex pt-2">
               <a
                 className="btn btn-outline-light btn-social"
-                href={institutionData?.institucion_youtube}
+                href={sanitizeURL(institutionData?.institucion_youtube)}
                 target="_blank"
               >
                 <i className="fab fa-facebook"></i>
@@ -67,7 +70,7 @@ export default function Footer() {
             <div className="d-flex pt-2">
               <a
                 className="btn btn-outline-light btn-social"
-                href={institutionData?.institucion_youtube}
+                href={sanitizeURL(institutionData?.institucion_youtube)}
                 target="_blank"
               >
                 <i className="fab fa-youtube"></i>
@@ -90,11 +93,11 @@ export default function Footer() {
       <div className="container">
         <div className="copyright">
           <div className="row">
-            <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div className="col-md-6 text-center text-md-start mb-2 mb-md-0">
               &copy; Todos los
-              derechos reservados. Diseñado por: Carmen.
+              derechos reservados.
               <br />
-              Desarrollado por: Maribel Torrez
+              UTIC - 2025
             </div>
           </div>
         </div>

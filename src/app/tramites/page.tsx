@@ -1,12 +1,13 @@
 "use client";
 import Banner from "@/components/Banner";
 import { useGazette } from "@/hooks/useGazette";
-import Image from "next/image";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
 
 export default function Page() {
   const { modelo_biblio } = useGazette();
   const { modelo_kardex } = useGazette();
   const { modelo_tus } = useGazette();
+  const { sanitize } = useDOMPurify();
 
   return (
     <>
@@ -25,7 +26,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <Image className="img-fluid position-absolute w-100 h-100" src="img/BIBLIOEST.JPG" alt=""
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/BIBLIOEST.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
@@ -34,9 +35,9 @@ export default function Page() {
                     Modelo de Cartas para Biblioteca</h6>
                   {modelo_biblio?.map((data, _i) => (
                     <a key={`mod-biblio-${_i}`}
-                      href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                      href={sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`)}
                       className="nav-item nav-link">
-                      {data.gaceta_titulo}
+                      {sanitizeText(data.gaceta_titulo)}
                     </a>
                   ))}
                 </div>
@@ -51,7 +52,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <Image className="img-fluid position-absolute w-100 h-100" src="img/kardex.JPG" alt=""
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/kardex.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
@@ -61,9 +62,9 @@ export default function Page() {
                   </h6>
                   {modelo_kardex?.map((data, _i) => (
                     <a key={`mod-kardex-${_i}`}
-                      href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                      href={sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`)}
                       className="nav-item nav-link">
-                      {data.gaceta_titulo}
+                      {sanitizeText(data.gaceta_titulo)}
                     </a>
 
                   ))}
@@ -79,7 +80,7 @@ export default function Page() {
               <div className="row g-5">
                 <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style={{ minHeight: "400px" }}>
                   <div className="position-relative h-100">
-                    <Image className="img-fluid position-absolute w-100 h-100" src="img/tus.JPG" alt=""
+                    <img className="img-fluid position-absolute w-100 h-100" src="img/tus.JPG" alt=""
                       style={{ objectFit: "cover" }} />
                   </div>
                 </div>
@@ -90,9 +91,9 @@ export default function Page() {
                   {
                     modelo_tus?.map((data, _i) => (
                       <a key={`mod-tus-${_i}`}
-                        href={`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`}
+                        href={sanitizeURL(`${process.env.NEXT_PUBLIC_API_URL}/Gaceta/${data.gaceta_documento}`)}
                         className="nav-item nav-link">
-                        {data.gaceta_titulo}
+                        {sanitizeText(data.gaceta_titulo)}
                       </a>
                     ))
                   }

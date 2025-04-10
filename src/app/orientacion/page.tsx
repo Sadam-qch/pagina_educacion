@@ -3,10 +3,13 @@
 import Banner from "@/components/Banner";
 import { useVideos } from "@/hooks/useVideos";
 import { stripHtml } from "@/util/formatText";
+import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
 
 export default function Page() {
     const { orientacionVoc } = useVideos();
     const { actividades } = useVideos();
+    const { sanitize } = useDOMPurify();
+
     return (
         <>
             <Banner title="Orientación Vocacional" />
@@ -28,7 +31,7 @@ export default function Page() {
                                                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                                                         <div className="ratio ratio-16x9">
                                                             <iframe
-                                                                src={data.video_enlace}
+                                                                src={sanitizeURL(data.video_enlace)}
                                                                 title="YouTube video"
                                                                 allowFullScreen
                                                             ></iframe>
@@ -38,8 +41,8 @@ export default function Page() {
                                                         <h6 className="section-title bg-white text-start text-primary pe-3">
                                                             Orientación vocacional
                                                         </h6>
-                                                        <h1 className="mb-4">{data.video_titulo}</h1>
-                                                        <p className="mb-4 text-justify">{stripHtml(data.video_breve_descripcion)}</p>
+                                                        <h1 className="mb-4">{sanitizeText(data.video_titulo)}</h1>
+                                                        <p className="mb-4 text-justify">{stripHtml(sanitizeText(data.video_breve_descripcion))}</p>
                                                     </div>
                                                 </>
                                             ) : (
@@ -49,13 +52,13 @@ export default function Page() {
                                                         <h6 className="section-title bg-white text-start text-primary pe-3">
                                                             Orientación vocacional
                                                         </h6>
-                                                        <h1 className="mb-4">{data.video_titulo}</h1>
-                                                        <p className="mb-4 text-justify">{stripHtml(data.video_breve_descripcion)}</p>
+                                                        <h1 className="mb-4">{sanitizeText(data.video_titulo)}</h1>
+                                                        <p className="mb-4 text-justify">{stripHtml(sanitizeText(data.video_breve_descripcion))}</p>
                                                     </div>
                                                     <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                                                         <div className="ratio ratio-16x9">
                                                             <iframe
-                                                                src={data.video_enlace}
+                                                                src={sanitizeURL(data.video_enlace)}
                                                                 title="YouTube video"
                                                                 allowFullScreen
                                                             ></iframe>
@@ -69,7 +72,7 @@ export default function Page() {
                             ))}
                         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                             <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
-                            <h1 className="mb-5">Todo sobre la orientación vocacional </h1>
+                            <h1 className="mb-5">Todo sobre la Orientación Vocacional </h1>
                         </div>
 
                         <div className="d-flex flex-wrap justify-content-center gap-4">
@@ -92,7 +95,7 @@ export default function Page() {
                                     </div>
                                 </div>
                                 <div className="card-body p-4">
-                                    <h5 className="text-center fw-bold">Formulario de inscripción</h5>
+                                    <h5 className="text-center fw-bold">Formulario de Inscripción</h5>
                                 </div>
                             </div>
 
@@ -137,14 +140,14 @@ export default function Page() {
                                     </div>
                                 </div>
                                 <div className="card-body p-4">
-                                    <h5 className="text-center fw-bold">Taller presencial</h5>
+                                    <h5 className="text-center fw-bold">Taller Presencial</h5>
                                 </div>
                             </div>
                         </div>
 
                         <div className="container pt-5 text-center animate__animated animate__fadeInUp" data-wow-delay="0.1s">
                             <h6 className="section-title bg-white text-center text-primary px-3">Actividades</h6>
-                            <h1 className="mb-5">Todo sobre la orientación vocacional</h1>
+                            <h1 className="mb-5">Todo sobre la Orientación Vocacional</h1>
 
                             {/* Contenedor de videos */}
                             <div className="d-flex flex-wrap justify-content-center gap-4">
@@ -158,14 +161,14 @@ export default function Page() {
                                             <div className="position-relative overflow-hidden">
                                                 <div className="ratio ratio-16x9">
                                                     <iframe
-                                                        src={data.video_enlace}
+                                                        src={sanitizeURL(data.video_enlace)}
                                                         title={data.video_titulo}
                                                         allowFullScreen
                                                     ></iframe>
                                                 </div>
                                             </div>
                                             <div className="card-body p-4">
-                                                <h5 className="text-center fw-bold">{data.video_titulo}</h5>
+                                                <h5 className="text-center fw-bold">{sanitizeText(data.video_titulo)}</h5>
                                             </div>
                                         </div>
                                     ))}
