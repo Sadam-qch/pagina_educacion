@@ -27,7 +27,9 @@ export default function ScriptLoader() {
     <>
       {/* jQuery primero, con un callback para confirmar carga */}
       <Script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossOrigin="anonymous"
         strategy="beforeInteractive"
         onLoad={() => {
           console.log("jQuery loaded successfully");
