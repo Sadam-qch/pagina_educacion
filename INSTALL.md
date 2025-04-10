@@ -33,7 +33,7 @@ de entorno**).
 
 ```bash
 # copia el archivo (Linux)
-cp .env.sample .env 
+cp .env.example .env 
 ```
 
 ### Despliegue de la aplicación
