@@ -130,14 +130,14 @@ export default function Page() {
                                     <img
                                         className="card-img-top"
                                         style={{ height: "12rem", objectFit: "cover" }}
-                                        src="https://educacion.upea.edu.bo/img/tallerpre.1290730b.png"
+                                        src="/img/tallerpre.png"
                                         alt="Taller presencial"
                                     />
-                                    <div className="position-absolute bottom-0 w-100 d-flex justify-content-center mb-4">
+                                    {/*<div className="position-absolute bottom-0 w-100 d-flex justify-content-center mb-4">
                                         <a href="#" className="btn btn-sm btn-primary px-4 rounded-pill">
                                             Leer más
                                         </a>
-                                    </div>
+                                    </div>*/}
                                 </div>
                                 <div className="card-body p-4">
                                     <h5 className="text-center fw-bold">Taller Presencial</h5>
