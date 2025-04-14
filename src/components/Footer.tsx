@@ -97,7 +97,7 @@ export default function Footer() {
               &copy; Todos los
               derechos reservados - UTIC {new Date().getFullYear()}
               <br />
-              Desarrollado por Maribel Torrez
+              Desarrollado por <a href="https://www.linkedin.com/in/maribel-carola-choque-torrez/" target="_blank" className="text-info">Maribel Torrez</a>
             </div>
           </div>
         </div>
