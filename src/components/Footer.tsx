@@ -2,7 +2,12 @@
 import React from "react";
 import { useInstitutionData } from "@/hooks/useInstitutionData";
 import Link from "next/link";
-import { sanitizeText, sanitizeHTML, sanitizeURL, useDOMPurify } from "@/util/sanitize";
+import {
+  sanitizeText,
+  sanitizeHTML,
+  sanitizeURL,
+  useDOMPurify,
+} from "@/util/sanitize";
 
 export default function Footer() {
   const { institutionData } = useInstitutionData();
@@ -94,10 +99,19 @@ export default function Footer() {
         <div className="copyright">
           <div className="row">
             <div className="col-md-6 text-center text-md-start mb-2 mb-md-0">
-              &copy; Todos los
-              derechos reservados - UTIC {new Date().getFullYear()}
+              &copy; Todos los derechos reservados - UTIC{" "}
+              {new Date().getFullYear()}
               <br />
-              Desarrollado por <a href="https://www.linkedin.com/in/maribel-carola-choque-torrez/" target="_blank" className="text-info">Maribel Torrez</a>
+              Desarrollado por{" "}
+              <a
+                href="https://www.linkedin.com/in/maribel-carola-choque-torrez/"
+                target="_blank"
+                className="text-info"
+              >
+                M@b
+              </a>
+              <br />
+              Diseñado por Lic. Carmen Mamani
             </div>
           </div>
         </div>
