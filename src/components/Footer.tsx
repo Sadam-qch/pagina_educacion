@@ -102,6 +102,8 @@ export default function Footer() {
               &copy; Todos los derechos reservados - UTIC{" "}
               {new Date().getFullYear()}
               <br />
+              Diseñado por Lic. Carmen Mamani
+              <br />
               Desarrollado por{" "}
               <a
                 href="https://www.linkedin.com/in/maribel-carola-choque-torrez/"
@@ -110,8 +112,6 @@ export default function Footer() {
               >
                 M@b
               </a>
-              <br />
-              Diseñado por Lic. Carmen Mamani
             </div>
           </div>
         </div>
