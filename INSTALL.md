@@ -34,6 +34,9 @@ de entorno**).
 ```bash
 # copia el archivo (Linux)
 cp .env.example .env 
+
+# copia el archivo (windows)
+copy .\.env.example .env
 ```
 
 ### Despliegue de la aplicación

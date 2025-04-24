@@ -99,8 +99,8 @@ export default function Footer() {
         <div className="copyright">
           <div className="row">
             <div className="col-md-6 text-center text-md-start mb-2 mb-md-0">
-              &copy; Todos los derechos reservados - UTIC{" "}
-              {new Date().getFullYear()}
+              &copy; UPEA - {" "} 
+              {new Date().getFullYear()} | U-TIC - Web
               <br />
               Diseñado por Lic. Carmen Mamani
               <br />
