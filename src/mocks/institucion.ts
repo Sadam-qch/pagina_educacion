@@ -54,7 +54,7 @@ export const institutionData: Institution = {
       id_autoridad: 165,
       foto_autoridad: "ejecutivo.webp",
       nombre_autoridad: "UNIV. GROVER MAMANI LOPEZ",
-      cargo_autoridad: "1er Ejecutivo a.i.",
+      cargo_autoridad: "1er Ejecutivo de Centro de Estudiantes",
       facebook_autoridad: "",
       celular_autoridad: "",
       twiter_autoridad: "",
